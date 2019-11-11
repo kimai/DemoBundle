@@ -30,7 +30,7 @@ class SystemConfigurationSubscriber implements EventSubscriberInterface
             ->setSection('demo_config')
             ->setConfiguration([
                 (new Configuration())
-                    ->setName('foo.some_setting')
+                    ->setName('demo.some_setting')
                     ->setLabel('demo.some_setting')
                     ->setTranslationDomain('system-configuration')
                     ->setRequired(false)

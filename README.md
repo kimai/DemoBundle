@@ -10,6 +10,18 @@ A Kimai 2 plugin, which showcases some developer options within Kimai 2.
 - a new permission
 - a theme event, adding a css rule for "magic color dots" (customers, projects, activities) 
 
+### Demo configuration
+
+You users could set a default value via `local.yaml` like this:
+```yaml
+demo:
+    demo:
+        some_setting: testing
+```
+
+Via the `demo` twice? Well: the first level depends on the Symfony flow and the second is used to put it into its own 
+namespace inside the Kimai configuration. 
+
 ## Installation
 
 First clone it to your Kimai installation `plugins` directory:

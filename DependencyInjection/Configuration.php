@@ -35,7 +35,7 @@ class Configuration implements ConfigurationInterface
 
     protected function getDemoNode()
     {
-        $builder = new TreeBuilder('foo');
+        $builder = new TreeBuilder('demo');
         /** @var ArrayNodeDefinition $rootNode */
         $node = $builder->getRootNode();
 
