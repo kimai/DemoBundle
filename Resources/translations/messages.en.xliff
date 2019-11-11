@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="en" datatype="plaintext" original="none">
+        <body>
+            <trans-unit id="Demo">
+                <source>Demo</source>
+                <target>Developer demo</target>
+            </trans-unit>
+            <trans-unit id="demo.visited_page">
+                <source>demo.visited_page</source>
+                <target>You have visited this page %counter% times</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

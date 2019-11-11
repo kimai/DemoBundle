@@ -1,0 +1,29 @@
+{
+    "name": "keleo/demo-plugin",
+    "description": "A Kimai 2 plugin, which showcases some developer options within Kimai.",
+    "homepage": "https://www.kimai.org/store/demo-bundle.html",
+    "type": "kimai-plugin",
+    "version": "0.1",
+    "require": {
+        "kimai/kimai2-composer": "*"
+    },
+    "keywords": [
+        "kimai",
+        "kimai-plugin"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kevin Papst",
+            "email": "kpapst@gmx.net",
+            "homepage": "https://www.keleo.de"
+        }
+    ],
+    "extra": {
+        "kimai": {
+            "require": "1.6",
+            "version": "0.1",
+            "name": "DemoBundle"
+        }
+    }
+}

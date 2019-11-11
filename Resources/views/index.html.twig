@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+{% import "macros/widgets.html.twig" as widgets %}
+
+{% block page_title %}{{ 'Demo'|trans }}{% endblock %}
+
+{% block main %}
+
+    {{ widgets.callout('warning', 'demo.visited_page'|trans({'%counter%': entity.counter})) }}
+
+{% endblock %}
