@@ -25,29 +25,14 @@ class Configuration implements ConfigurationInterface
         $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
-            ->children()
-                ->append($this->getDemoNode())
-            ->end()
-        ->end();
-
-        return $treeBuilder;
-    }
-
-    protected function getDemoNode()
-    {
-        $builder = new TreeBuilder('demo');
-        /** @var ArrayNodeDefinition $rootNode */
-        $node = $builder->getRootNode();
-
-        $node
             ->addDefaultsIfNotSet()
             ->children()
                 ->scalarNode('some_setting')
                     ->defaultValue('demo')
                 ->end()
             ->end()
-        ;
+        ->end();
 
-        return $node;
+        return $treeBuilder;
     }
 }

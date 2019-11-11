@@ -9,13 +9,13 @@
 
 namespace KimaiPlugin\DemoBundle\DependencyInjection;
 
+use App\Plugin\AbstractPluginExtension;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader;
-use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
-class DemoExtension extends Extension implements PrependExtensionInterface
+class DemoExtension extends AbstractPluginExtension implements PrependExtensionInterface
 {
     /**
      * @param array $configs
@@ -27,10 +27,7 @@ class DemoExtension extends Extension implements PrependExtensionInterface
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        if ($container->hasParameter('bundle.config')) {
-            $config = array_merge($container->getParameter('bundle.config'), $config);
-        }
-        $container->setParameter('bundle.config', $config);
+        $this->registerBundleConfiguration($container, $config);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yaml');
