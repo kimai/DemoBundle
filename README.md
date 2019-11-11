@@ -15,12 +15,10 @@ A Kimai 2 plugin, which showcases some developer options within Kimai 2.
 You users could set a default value via `local.yaml` like this:
 ```yaml
 demo:
-    demo:
-        some_setting: testing
+    some_setting: testing
 ```
 
-Via the `demo` twice? Well: the first level depends on the Symfony flow and the second is used to put it into its own 
-namespace inside the Kimai configuration. 
+But that should not be required, as they can change the configuration through the "System configuration" screen in Kimai. 
 
 ## Installation
 
