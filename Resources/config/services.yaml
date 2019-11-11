@@ -13,3 +13,7 @@ services:
     KimaiPlugin\DemoBundle\Controller\:
         resource: '../../Controller'
         tags: ['controller.service_arguments']
+
+    KimaiPlugin\DemoBundle\Configuration\DemoConfiguration:
+        arguments:
+            $settings: '%demo_settings%'

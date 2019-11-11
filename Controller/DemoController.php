@@ -10,6 +10,7 @@
 namespace KimaiPlugin\DemoBundle\Controller;
 
 use App\Controller\AbstractController;
+use KimaiPlugin\DemoBundle\Configuration\DemoConfiguration;
 use KimaiPlugin\DemoBundle\Entity\DemoEntity;
 use KimaiPlugin\DemoBundle\Form\DemoType;
 use KimaiPlugin\DemoBundle\Repository\DemoRepository;
@@ -27,10 +28,15 @@ final class DemoController extends AbstractController
      * @var DemoRepository
      */
     private $repository;
+    /**
+     * @var DemoConfiguration
+     */
+    private $configuration;
 
-    public function __construct(DemoRepository $repository)
+    public function __construct(DemoRepository $repository, DemoConfiguration $configuration)
     {
         $this->repository = $repository;
+        $this->configuration = $configuration;
     }
 
     /**
@@ -48,6 +54,7 @@ final class DemoController extends AbstractController
 
         return $this->render('@Demo/index.html.twig', [
             'entity' => $entity,
+            'configuration' => $this->configuration,
         ]);
     }
 

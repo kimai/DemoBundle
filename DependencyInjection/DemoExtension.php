@@ -28,6 +28,7 @@ class DemoExtension extends AbstractPluginExtension implements PrependExtensionI
         $config = $this->processConfiguration($configuration, $configs);
 
         $this->registerBundleConfiguration($container, $config);
+        $container->setParameter('demo_settings', $config);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yaml');

@@ -7,4 +7,6 @@
 
     {{ widgets.callout('warning', 'demo.visited_page'|trans({'%counter%': entity.counter})) }}
 
+    {{ widgets.callout('success', 'Your configuration key "some_setting" has the value: ' ~ configuration.someSetting) }}
+
 {% endblock %}
