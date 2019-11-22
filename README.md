@@ -8,7 +8,8 @@ A Kimai 2 plugin, which showcases some developer options within Kimai 2.
 - a new menu entry
 - a demo controller with a view and repository
 - a new permission
-- a theme event, adding a css rule for "magic color dots" (customers, projects, activities) 
+- a theme event, adding a css rule for "magic color dots" (customers, projects, activities)
+- an API method 
 
 ### Demo configuration
 

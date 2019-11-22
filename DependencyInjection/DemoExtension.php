@@ -14,6 +14,7 @@ use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader;
+use Symfony\Component\Yaml\Parser;
 
 class DemoExtension extends AbstractPluginExtension implements PrependExtensionInterface
 {
@@ -36,6 +37,18 @@ class DemoExtension extends AbstractPluginExtension implements PrependExtensionI
 
     public function prepend(ContainerBuilder $container)
     {
+        $yamlParser = new Parser();
+
+        $config = $yamlParser->parse(
+            file_get_contents(__DIR__ . '/../Resources/config/jms_serializer.yaml')
+        );
+        $container->prependExtensionConfig('jms_serializer', $config['jms_serializer']);
+
+        $config = $yamlParser->parse(
+            file_get_contents(__DIR__ . '/../Resources/config/nelmio_api_doc.yaml')
+        );
+        $container->prependExtensionConfig('nelmio_api_doc', $config['nelmio_api_doc']);
+
         $container->prependExtensionConfig('kimai', [
             'permissions' => [
                 'roles' => [

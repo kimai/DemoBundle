@@ -1,0 +1,8 @@
+KimaiPlugin\DemoBundle\Entity\DemoEntity:
+    exclusion_policy: All
+    custom_accessor_order: [id, counter]
+    properties:
+        id:
+            include: true
+        counter:
+            include: true

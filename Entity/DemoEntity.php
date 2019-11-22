@@ -11,7 +11,26 @@ namespace KimaiPlugin\DemoBundle\Entity;
 
 class DemoEntity
 {
+    /**
+     * @var int
+     */
+    private $id;
+    /**
+     * @var int
+     */
     private $counter = 0;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function setId(int $id): DemoEntity
+    {
+        $this->id = $id;
+
+        return $this;
+    }
 
     public function getCounter(): int
     {

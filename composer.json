@@ -3,7 +3,7 @@
     "description": "A Kimai 2 plugin, which showcases some developer options within Kimai.",
     "homepage": "https://www.kimai.org/store/demo-bundle.html",
     "type": "kimai-plugin",
-    "version": "0.1",
+    "version": "0.2",
     "require": {
         "kimai/kimai2-composer": "*"
     },
@@ -22,7 +22,7 @@
     "extra": {
         "kimai": {
             "require": "1.6",
-            "version": "0.1",
+            "version": "0.2",
             "name": "DemoBundle"
         }
     }

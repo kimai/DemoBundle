@@ -1,0 +1,10 @@
+jms_serializer:
+    metadata:
+        directories:
+            Demo:
+                namespace_prefix: "KimaiPlugin\\DemoBundle"
+                path: "@DemoBundle/Resources/config/serializer"
+        warmup:
+            paths:
+                included:
+                    - "%kernel.root_dir%/../var/plugins/DemoBundle/Entity/"
