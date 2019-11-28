@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3 
+
+- Added example of invoice template
+
 ## 0.2
 
 - Added API controller, serialization config ...

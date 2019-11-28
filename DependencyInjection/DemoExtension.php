@@ -50,6 +50,11 @@ class DemoExtension extends AbstractPluginExtension implements PrependExtensionI
         $container->prependExtensionConfig('nelmio_api_doc', $config['nelmio_api_doc']);
 
         $container->prependExtensionConfig('kimai', [
+            'invoice' => [
+                'documents' => [
+                    'var/plugins/DemoBundle/Resources/invoices/',
+                ]
+            ],
             'permissions' => [
                 'roles' => [
                     'ROLE_SUPER_ADMIN' => [
