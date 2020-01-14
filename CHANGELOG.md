@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4 
+
+- added dashboard widget
+
 ## 0.3 
 
 - Added example of invoice template
