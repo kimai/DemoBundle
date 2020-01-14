@@ -12,6 +12,7 @@ A Kimai 2 plugin, which showcases some developer options within Kimai 2.
 - a new API method
 - a new invoice template (plus a new search path via bundle extension)
 - a new dashboard widget 
+- a event subscriber to sort the bundle permissions in a new section (see user roles & permission screen) 
 
 ### Demo configuration
 

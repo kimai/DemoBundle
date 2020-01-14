@@ -21,8 +21,8 @@
     ],
     "extra": {
         "kimai": {
-            "require": "1.6",
-            "version": "0.4",
+            "require": "1.7",
+            "version": "0.5",
             "name": "DemoBundle"
         }
     }

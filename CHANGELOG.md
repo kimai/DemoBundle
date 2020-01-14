@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5
+ 
+**Requires Kimai 1.7**
+
+- added example for PermissionSectionsEvent (sort your bundles permission)
+
 ## 0.4 
 
 - added dashboard widget
