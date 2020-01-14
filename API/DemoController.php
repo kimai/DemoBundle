@@ -1,7 +1,8 @@
 <?php
 
 /*
- * This file is part of the Kimai DemoBundle.
+ * This file is part of the DemoBundle for Kimai 2.
+ * All rights reserved by Kevin Papst (www.kevinpapst.de).
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -19,8 +20,8 @@ use KimaiPlugin\DemoBundle\Entity\DemoEntity;
 use Nelmio\ApiDocBundle\Annotation\Security as ApiSecurity;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Swagger\Annotations as SWG;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @RouteResource("Demo")
