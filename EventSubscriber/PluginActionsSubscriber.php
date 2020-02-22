@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the KioskBundle for Kimai 2.
+ * This file is part of the DemoBundle for Kimai 2.
  * All rights reserved by Kevin Papst (www.kevinpapst.de).
  *
  * For the full copyright and license information, please view the LICENSE
@@ -10,7 +10,6 @@
 
 namespace KimaiPlugin\DemoBundle\EventSubscriber;
 
-use App\Entity\User;
 use App\Event\ThemeEvent;
 use App\Plugin\Plugin;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
