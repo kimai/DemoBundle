@@ -1,9 +1,9 @@
 {
     "name": "keleo/demo-plugin",
-    "description": "A Kimai 2 plugin, which showcases some developer options within Kimai.",
+    "description": "Showcase developer options within Kimai",
     "homepage": "https://www.kimai.org/store/demo-bundle.html",
     "type": "kimai-plugin",
-    "version": "0.4",
+    "version": "0.5",
     "require": {
         "kimai/kimai2-composer": "*"
     },
@@ -21,9 +21,13 @@
     ],
     "extra": {
         "kimai": {
-            "require": "1.7",
+            "require": "1.8",
             "version": "0.5",
-            "name": "DemoBundle"
+            "name": "Developer demo"
         }
+    },
+    "scripts": {
+        "codestyle": "php-cs-fixer fix --dry-run --verbose --show-progress=none",
+        "codestyle-fix": "php-cs-fixer fix"
     }
 }
