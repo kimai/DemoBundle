@@ -15,6 +15,7 @@ A Kimai 2 plugin, which showcases some developer options within Kimai 2.
 - a event subscriber to sort the bundle permissions in a new section (see user roles & permission screen) 
 - a listener to attach new action items in the plugin screen 
 - a meta field for timesheets 
+- a user preference
 
 ### Demo configuration
 
