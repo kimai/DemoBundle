@@ -49,9 +49,9 @@
 <div class="row">
     <div class="col-sm-5">
         <p contenteditable="true">
-            <strong>{{ 'invoice.number'|trans }}:</strong> 
-            {{ model.numberGenerator.invoiceNumber }}
-            
+            <strong>{{ 'invoice.number'|trans }}:</strong>
+            {{ model.invoiceNumber }}
+
             <br>
             <strong>{{ 'invoice.due_days'|trans }}:</strong>
             {{ model.dueDate|date_short }}
