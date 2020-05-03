@@ -13,6 +13,9 @@ namespace KimaiPlugin\DemoBundle\Configuration;
 use App\Configuration\StringAccessibleConfigTrait;
 use App\Configuration\SystemBundleConfiguration;
 
+/**
+ * @implements \ArrayAccess<string, mixed>
+ */
 class DemoConfiguration implements SystemBundleConfiguration, \ArrayAccess
 {
     use StringAccessibleConfigTrait;

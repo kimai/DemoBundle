@@ -33,10 +33,13 @@ final class DemoRepository
         }
 
         $data = file_get_contents($this->storage);
-        $json = json_decode($data, true);
 
-        if (array_key_exists('counter', $json)) {
-            $entity->setCounter($json['counter']);
+        if ($data !== false) {
+            $json = json_decode($data, true);
+
+            if (array_key_exists('counter', $json)) {
+                $entity->setCounter($json['counter']);
+            }
         }
 
         return $entity;
@@ -48,7 +51,9 @@ final class DemoRepository
 
         if (file_exists($this->storage)) {
             $data = file_get_contents($this->storage);
-            $vars = json_decode($data, true);
+            if ($data !== false) {
+                $vars = json_decode($data, true);
+            }
         }
 
         $vars['counter'] = $entity->getCounter();

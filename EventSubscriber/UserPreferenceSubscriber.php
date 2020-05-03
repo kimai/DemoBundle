@@ -1,7 +1,8 @@
 <?php
 
 /*
- * This file is part of the Kimai time-tracking app.
+ * This file is part of the DemoBundle for Kimai 2.
+ * All rights reserved by Kevin Papst (www.kevinpapst.de).
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -9,23 +10,10 @@
 
 namespace KimaiPlugin\DemoBundle\EventSubscriber;
 
-use App\Configuration\FormConfiguration;
-use App\Entity\User;
 use App\Entity\UserPreference;
-use App\Event\PrepareUserEvent;
 use App\Event\UserPreferenceEvent;
-use App\Form\Type\CalendarViewType;
-use App\Form\Type\InitialViewType;
-use App\Form\Type\LanguageType;
-use App\Form\Type\SkinType;
-use App\Form\Type\ThemeLayoutType;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
-use Symfony\Component\Form\Extension\Core\Type\TimezoneType;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
-use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use Symfony\Component\Validator\Constraints\Range;
 
 class UserPreferenceSubscriber implements EventSubscriberInterface

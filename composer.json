@@ -1,11 +1,11 @@
 {
     "name": "keleo/demo-plugin",
-    "description": "Showcase developer options within Kimai",
+    "description": "Showcase extension points within Kimai",
     "homepage": "https://www.kimai.org/store/demo-bundle.html",
     "type": "kimai-plugin",
-    "version": "0.5",
+    "version": "0.6",
     "require": {
-        "kimai/kimai2-composer": "*"
+        "kimai/kimai2-composer": "^0.1"
     },
     "keywords": [
         "kimai",
@@ -15,19 +15,46 @@
     "authors": [
         {
             "name": "Kevin Papst",
-            "email": "kpapst@gmx.net",
+            "email": "info@keleo.de",
             "homepage": "https://www.keleo.de"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "KimaiPlugin\\DemoBundle\\": ""
+        }
+    },
+    "config": {
+        "platform": {
+            "php": "7.2.9"
+        },
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
     "extra": {
         "kimai": {
             "require": "1.8",
-            "version": "0.5",
+            "version": "0.6",
             "name": "Developer demo"
         }
     },
     "scripts": {
         "codestyle": "php-cs-fixer fix --dry-run --verbose --show-progress=none",
-        "codestyle-fix": "php-cs-fixer fix"
+        "codestyle-fix": "php-cs-fixer fix",
+        "codestyle-check": "vendor/bin/php-cs-fixer fix --dry-run --verbose --config=.php_cs.dist --using-cache=no --show-progress=none --format=checkstyle",
+        "phpstan": "vendor/bin/phpstan analyse . -c phpstan.neon --level=7",
+        "linting": [
+            "composer validate",
+            "@codestyle-check",
+            "@phpstan"
+        ]
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.15",
+        "phpstan/phpstan": "^0.12.19",
+        "phpstan/phpstan-doctrine": "^0.12.10",
+        "kevinpapst/kimai2": "^1.9"
     }
 }

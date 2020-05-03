@@ -40,14 +40,20 @@ class DemoExtension extends AbstractPluginExtension implements PrependExtensionI
     {
         $yamlParser = new Parser();
 
-        $config = $yamlParser->parse(
-            file_get_contents(__DIR__ . '/../Resources/config/jms_serializer.yaml')
-        );
+        // load the entity serialization config (mainly for the API)
+        $serializerConfig = file_get_contents(__DIR__ . '/../Resources/config/jms_serializer.yaml');
+        if ($serializerConfig === false) {
+            throw new \Exception('Could not read serializer configuration');
+        }
+        $config = $yamlParser->parse($serializerConfig);
         $container->prependExtensionConfig('jms_serializer', $config['jms_serializer']);
 
-        $config = $yamlParser->parse(
-            file_get_contents(__DIR__ . '/../Resources/config/nelmio_api_doc.yaml')
-        );
+        // load the entity documentation for the API
+        $apiConfig = file_get_contents(__DIR__ . '/../Resources/config/nelmio_api_doc.yaml');
+        if ($apiConfig === false) {
+            throw new \Exception('Could not read API configuration');
+        }
+        $config = $yamlParser->parse($apiConfig);
         $container->prependExtensionConfig('nelmio_api_doc', $config['nelmio_api_doc']);
 
         $container->prependExtensionConfig('kimai', [

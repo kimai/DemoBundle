@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.6
+
+- Added PHPStan and Github workflow for your first CI checks
+
 ## 0.5
  
 **Requires Kimai 1.7**
