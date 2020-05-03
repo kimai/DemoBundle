@@ -1,4 +1,7 @@
+
 # A Kimai 2 demo bundle
+
+[![CI Status](https://github.com/Keleo/DemoBundle/workflows/CI/badge.svg)](https://github.com/Keleo/DemoBundle/actions)
 
 A Kimai 2 plugin, which showcases some developer options within Kimai 2.
 
