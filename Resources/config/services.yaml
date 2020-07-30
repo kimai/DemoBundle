@@ -17,3 +17,6 @@ services:
     KimaiPlugin\DemoBundle\Configuration\DemoConfiguration:
         arguments:
             $settings: '%demo_settings%'
+
+    KimaiPlugin\DemoBundle\Command\InstallCommand:
+        arguments: ['%kimai.plugin_dir%']

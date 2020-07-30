@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------------------------------------
+# Generate a new migration with:
+# bin/console doctrine:migrations:diff --em=default --configuration=var/plugins/DemoBundle/Migrations/demo.yaml
+#
+# Execute all migrations with:
+# bin/console kimai:bundle:tasks:install
+# bin/console doctrine:migrations:migrate --em=default --configuration=var/plugins/DemoBundle/Migrations/demo.yaml
+# --------------------------------------------------------------------------------------------------
+
+name: DemoMigrations
+table_name: bundle_migration_demo
+migrations_namespace: DemoBundle\Migrations
+migrations_directory: var/plugins/DemoBundle/Migrations

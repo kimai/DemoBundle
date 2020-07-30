@@ -19,6 +19,8 @@ A Kimai 2 plugin, which showcases some developer options within Kimai 2.
 - a listener to attach new action items in the plugin screen 
 - a meta field for timesheets 
 - a user preference
+- a doctrine migration for creating a simple database 
+- an installation command (that will be used for future database updates as well) 
 
 ### Demo configuration
 
@@ -38,11 +40,16 @@ cd /kimai/var/plugins/
 git clone https://github.com/Keleo/DemoBundle.git
 ```
 
-And then rebuild the cache: 
+Rebuild the cache: 
 ```
 cd /kimai/
-bin/console cache:clear
-bin/console cache:warmup
+bin/console kimai:reload -n
+```
+
+And install the database: 
+```
+cd /kimai/
+bin/console kimai:bundle:demo:install
 ```
 
 ## Permissions
@@ -53,4 +60,4 @@ This bundle ships a new permission:
 
 By default, it is assigned to each user with the role `ROLE_SUPER_ADMIN`.
 
-Read how to assign these permission to your user roles in the [permission documentation](https://www.kimai.org/documentation/permissions.html).
+Read how to assign this permission to your user roles in the [permission documentation](https://www.kimai.org/documentation/permissions.html).
