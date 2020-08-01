@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.7
+
+- Added demo migration
+- Added installation command (to execute migration)
+- Move API routes to own api-docs section
+
 ## 0.6
 
 - Added PHPStan and Github workflow for your first CI checks

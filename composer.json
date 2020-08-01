@@ -3,7 +3,7 @@
     "description": "Showcase extension points within Kimai",
     "homepage": "https://www.kimai.org/store/demo-bundle.html",
     "type": "kimai-plugin",
-    "version": "0.6",
+    "version": "0.7",
     "require": {
         "kimai/kimai2-composer": "^0.1"
     },
@@ -36,7 +36,7 @@
     "extra": {
         "kimai": {
             "require": "1.8",
-            "version": "0.6",
+            "version": "0.7",
             "name": "Developer demo"
         }
     },
