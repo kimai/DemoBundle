@@ -25,6 +25,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @RouteResource("Demo")
+ * @SWG\Tag(name="Demo")
  * @Security("is_granted('ROLE_USER')")
  */
 final class DemoController extends AbstractController
