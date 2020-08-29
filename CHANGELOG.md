@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8
+
+**Requires Kimai 1.10**
+
+- Configure section for user preference
+
 ## 0.7
 
 - Added demo migration

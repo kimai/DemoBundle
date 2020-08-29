@@ -27,8 +27,6 @@ class UserPreferenceSubscriber implements EventSubscriberInterface
 
     public function loadUserPreferences(UserPreferenceEvent $event)
     {
-        $user = $event->getUser();
-
         $event->addPreference(
             (new UserPreference())
                 ->setName('demo_money')
@@ -38,6 +36,7 @@ class UserPreferenceSubscriber implements EventSubscriberInterface
                 ->setEnabled(true)
                 ->setOptions(['help' => 'A help text'])
                 ->addConstraint(new Range(['min' => 1]))
+                ->setSection('demo')
         );
     }
 }
