@@ -10,75 +10,17 @@
 
 namespace KimaiPlugin\DemoBundle\Command;
 
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\ArrayInput;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Style\SymfonyStyle;
+use App\Command\AbstractBundleInstallerCommand;
 
-class InstallCommand extends Command
+class InstallCommand extends AbstractBundleInstallerCommand
 {
-    protected static $defaultName = 'kimai:bundle:demo:install';
-
-    /**
-     * @var string
-     */
-    private $pluginDir;
-
-    public function __construct(string $pluginDir)
+    protected function getBundleCommandNamePart(): string
     {
-        parent::__construct(self::$defaultName);
-        $this->pluginDir = $pluginDir;
+        return 'demo';
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function configure()
+    protected function getMigrationConfigFilename(): ?string
     {
-        $this
-            ->setName(self::$defaultName)
-            ->setDescription('Install the demo bundle')
-            ->setHelp('This command will install the DemoBundle database.')
-        ;
-    }
-
-    /**
-     * @param InputInterface $input
-     * @param OutputInterface $output
-     * @return int|null
-     */
-    protected function execute(InputInterface $input, OutputInterface $output)
-    {
-        $io = new SymfonyStyle($input, $output);
-
-        try {
-            $this->importMigrations($io, $output);
-        } catch (\Exception $ex) {
-            $io->error('Failed to install task management database: ' . $ex->getMessage());
-
-            return 1;
-        }
-
-        $io->success(
-            'Congratulations! TaskManagement bundle was successful installed!'
-        );
-
-        return 0;
-    }
-
-    protected function importMigrations(SymfonyStyle $io, OutputInterface $output)
-    {
-        $config = $this->pluginDir . '/DemoBundle/Migrations/demo.yaml';
-
-        // prevent windows from breaking
-        $config = str_replace('/', DIRECTORY_SEPARATOR, $config);
-
-        $command = $this->getApplication()->find('doctrine:migrations:migrate');
-        $cmdInput = new ArrayInput(['--allow-no-migration' => true, '--configuration' => $config]);
-        $cmdInput->setInteractive(false);
-        $command->run($cmdInput, $output);
-
-        $io->writeln('');
+        return __DIR__ . '/../Migrations/demo.yaml';
     }
 }

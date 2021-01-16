@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.9
+
+**Requires Kimai 1.11**
+
+- Better configuration class
+- Better installation command
+
 ## 0.8
 
 **Requires Kimai 1.10**
