@@ -10,23 +10,22 @@
 
 namespace KimaiPlugin\DemoBundle\Configuration;
 
-use App\Configuration\StringAccessibleConfigTrait;
-use App\Configuration\SystemBundleConfiguration;
+use App\Configuration\SystemConfiguration;
 
-/**
- * @implements \ArrayAccess<string, mixed>
- */
-class DemoConfiguration implements SystemBundleConfiguration, \ArrayAccess
+final class DemoConfiguration
 {
-    use StringAccessibleConfigTrait;
+    /**
+     * @var SystemConfiguration
+     */
+    private $configuration;
 
-    public function getPrefix(): string
+    public function __construct(SystemConfiguration $configuration)
     {
-        return 'demo';
+        $this->configuration = $configuration;
     }
 
     public function getSomeSetting(): string
     {
-        return (string) $this->find('some_setting');
+        return (string) $this->configuration->find('demo.some_setting');
     }
 }
