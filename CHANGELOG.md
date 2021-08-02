@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.10
+
+- Fix deprecations
+
 ## 0.9
 
 **Requires Kimai 1.11**

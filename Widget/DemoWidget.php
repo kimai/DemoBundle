@@ -15,24 +15,30 @@ use App\Repository\Query\UserQuery;
 use App\Repository\UserRepository;
 use App\Security\CurrentUser;
 use App\Widget\Type\SimpleWidget;
+use App\Widget\Type\UserWidget;
 
-class DemoWidget extends SimpleWidget
+class DemoWidget extends SimpleWidget implements UserWidget
 {
     /**
      * @var UserRepository
      */
     private $repository;
 
-    public function __construct(CurrentUser $user, UserRepository $repository)
+    public function __construct(UserRepository $repository)
     {
         $this->repository = $repository;
 
         $this->setId('DemoWidget');
         $this->setTitle('Demo widget');
         $this->setOptions([
-            'user' => $user->getUser(),
+            'user' => null,
             'id' => '',
         ]);
+    }
+
+    public function setUser(User $user): void
+    {
+        $this->setOption('user', $user);
     }
 
     public function getOptions(array $options = []): array
