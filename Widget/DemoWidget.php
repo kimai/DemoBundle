@@ -13,7 +13,6 @@ namespace KimaiPlugin\DemoBundle\Widget;
 use App\Entity\User;
 use App\Repository\Query\UserQuery;
 use App\Repository\UserRepository;
-use App\Security\CurrentUser;
 use App\Widget\Type\SimpleWidget;
 use App\Widget\Type\UserWidget;
 
