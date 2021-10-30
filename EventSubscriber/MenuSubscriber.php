@@ -11,7 +11,7 @@
 namespace KimaiPlugin\DemoBundle\EventSubscriber;
 
 use App\Event\ConfigureMainMenuEvent;
-use KevinPapst\AdminLTEBundle\Model\MenuItemModel;
+use App\Utils\MenuItemModel;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
