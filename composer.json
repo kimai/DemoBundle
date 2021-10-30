@@ -3,7 +3,7 @@
     "description": "Showcase extension points within Kimai",
     "homepage": "https://www.kimai.org/store/demo-bundle.html",
     "type": "kimai-plugin",
-    "version": "0.9",
+    "version": "2.0",
     "keywords": [
         "kimai",
         "kimai-plugin"
@@ -23,7 +23,7 @@
     },
     "config": {
         "platform": {
-            "php": "7.2.9"
+            "php": "7.3"
         },
         "preferred-install": {
             "*": "dist"
@@ -32,8 +32,7 @@
     },
     "extra": {
         "kimai": {
-            "require": "1.11",
-            "version": "0.9",
+            "require": "2.0",
             "name": "Developer demo"
         }
     },
@@ -52,7 +51,7 @@
         "friendsofphp/php-cs-fixer": "^2.15",
         "phpstan/phpstan": "^0.12.19",
         "phpstan/phpstan-doctrine": "^0.12.10",
-        "kevinpapst/kimai2": "1.11",
+        "kevinpapst/kimai2": "dev-v2",
         "symfony/console": "^4.0",
         "symfony/event-dispatcher": "^4.0"
     }
