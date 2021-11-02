@@ -60,11 +60,10 @@ class DemoWidget extends SimpleWidget implements UserWidget
 
         $query = new UserQuery();
         $amount = $this->repository->countUsersForQuery($query);
-        $query->setPageSize(8);
 
         return [
             'amount' => $amount,
-            'users' => $this->repository->getPagerfantaForQuery($query)
+            'users' => $this->repository->getUsersForQuery($query)
         ];
     }
 
