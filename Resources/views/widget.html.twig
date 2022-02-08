@@ -16,7 +16,7 @@
         <ul class="users-list clearfix">
             {% for user in data.users %}
                 <li>
-                    {{ widgets.user_avatar(user, false, 'profile-user-img') }}
+                    {{ widgets.user_avatar(user, false) }}
                     <a class="users-list-name" href="{{ path('user_profile', {'username': user.username}) }}">{{ widgets.username(user) }}</a>
                     <span class="users-list-date">Last login: {{ user.lastLogin|date_short }}</span>
                 </li>
