@@ -10,54 +10,37 @@
 
 namespace KimaiPlugin\DemoBundle\Widget;
 
-use App\Entity\User;
 use App\Repository\Query\UserQuery;
 use App\Repository\UserRepository;
-use App\Widget\Type\SimpleWidget;
-use App\Widget\Type\UserWidget;
+use App\Widget\Type\AbstractWidget;
+use App\Widget\WidgetInterface;
 
-class DemoWidget extends SimpleWidget implements UserWidget
+class DemoWidget extends AbstractWidget
 {
-    /**
-     * @var UserRepository
-     */
     private $repository;
 
     public function __construct(UserRepository $repository)
     {
         $this->repository = $repository;
-
-        $this->setId('DemoWidget');
-        $this->setTitle('Demo widget');
-        $this->setOptions([
-            'user' => null,
-            'id' => '',
-        ]);
     }
 
-    public function setUser(User $user): void
+    public function getWidth(): int
     {
-        $this->setOption('user', $user);
+        return WidgetInterface::WIDTH_FULL;
+    }
+
+    public function getHeight(): int
+    {
+        return WidgetInterface::HEIGHT_MAXIMUM;
     }
 
     public function getOptions(array $options = []): array
     {
-        $options = parent::getOptions($options);
-
-        if (empty($options['id'])) {
-            $options['id'] = 'DemoWidget';
-        }
-
-        return $options;
+        return array_merge(['id' => 'DemoWidget'], parent::getOptions($options));
     }
 
     public function getData(array $options = [])
     {
-        $options = $this->getOptions($options);
-
-        /** @var User $user */
-        $user = $options['user'];
-
         $query = new UserQuery();
         $amount = $this->repository->countUsersForQuery($query);
 
@@ -65,6 +48,16 @@ class DemoWidget extends SimpleWidget implements UserWidget
             'amount' => $amount,
             'users' => $this->repository->getUsersForQuery($query)
         ];
+    }
+
+    public function getId(): string
+    {
+        return 'DemoWidget';
+    }
+
+    public function getTitle(): string
+    {
+        return 'Demo widget';
     }
 
     public function getTemplateName(): string

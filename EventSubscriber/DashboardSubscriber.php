@@ -11,25 +11,10 @@
 namespace KimaiPlugin\DemoBundle\EventSubscriber;
 
 use App\Event\DashboardEvent;
-use App\Widget\Type\CompoundRow;
-use KimaiPlugin\DemoBundle\Widget\DemoWidget;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-class DashboardSubscriber implements EventSubscriberInterface
+final class DashboardSubscriber implements EventSubscriberInterface
 {
-    /**
-     * @var DemoWidget
-     */
-    private $widget;
-
-    public function __construct(DemoWidget $widget)
-    {
-        $this->widget = $widget;
-    }
-
-    /**
-     * @return array
-     */
     public static function getSubscribedEvents(): array
     {
         return [
@@ -37,17 +22,8 @@ class DashboardSubscriber implements EventSubscriberInterface
         ];
     }
 
-    /**
-     * @param DashboardEvent $event
-     */
-    public function onDashboardEvent(DashboardEvent $event)
+    public function onDashboardEvent(DashboardEvent $event): void
     {
-        $section = new CompoundRow();
-        $section->setTitle('What a great crowd!');
-        $section->setOrder(20);
-
-        $section->addWidget($this->widget);
-
-        $event->addSection($section);
+        $event->addWidget('DemoWidget');
     }
 }
