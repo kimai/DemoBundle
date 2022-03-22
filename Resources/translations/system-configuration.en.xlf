@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="de" datatype="plaintext" original="system-configuration.de.xliff">
+    <body>
+      <trans-unit id="692lBYc" resname="demo_config">
+        <source>demo_config</source>
+        <target>Demo configurations</target>
+      </trans-unit>
+      <trans-unit id="iEHZMqn" resname="label.demo.some_setting">
+        <source>label.demo.some_setting</source>
+        <target>Test setting</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
