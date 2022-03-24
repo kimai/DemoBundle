@@ -9,5 +9,5 @@ controllers:
 
 demo.api:
     resource: "@DemoBundle/API/"
-    type: rest
+    type: annotation
     prefix: /api

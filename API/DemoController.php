@@ -12,7 +12,6 @@ namespace KimaiPlugin\DemoBundle\API;
 
 use App\API\NotFoundException;
 use FOS\RestBundle\Controller\Annotations as Rest;
-use FOS\RestBundle\Controller\Annotations\RouteResource;
 use FOS\RestBundle\Request\ParamFetcherInterface;
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandlerInterface;
@@ -22,10 +21,12 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Swagger\Annotations as SWG;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @RouteResource("Demo")
+ * @Route(path="/demos")
  * @SWG\Tag(name="Demo")
+ *
  * @Security("is_granted('ROLE_USER')")
  */
 final class DemoController extends AbstractController
@@ -52,6 +53,8 @@ final class DemoController extends AbstractController
      *      )
      * )
      * @Rest\QueryParam(name="counter", requirements="\d+", strict=true, nullable=true, description="The counter to be included in the answer (default: 1)")
+     *
+     * @Rest\Get
      *
      * @ApiSecurity(name="apiUser")
      * @ApiSecurity(name="apiToken")
@@ -86,6 +89,8 @@ final class DemoController extends AbstractController
      *      description="Demo ID to fetch",
      *      required=true,
      * )
+     *
+     * @Rest\Get(path="/{id}")
      *
      * @ApiSecurity(name="apiUser")
      * @ApiSecurity(name="apiToken")
