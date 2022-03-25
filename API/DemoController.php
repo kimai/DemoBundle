@@ -18,14 +18,14 @@ use FOS\RestBundle\View\ViewHandlerInterface;
 use KimaiPlugin\DemoBundle\Entity\DemoEntity;
 use Nelmio\ApiDocBundle\Annotation\Security as ApiSecurity;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
-use Swagger\Annotations as SWG;
+use OpenApi\Annotations as OA;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route(path="/demos")
- * @SWG\Tag(name="Demo")
+ * @OA\Tag(name="Demo")
  *
  * @Security("is_granted('ROLE_USER')")
  */
@@ -44,12 +44,12 @@ final class DemoController extends AbstractController
     /**
      * Returns a collection of demo entities
      *
-     * @SWG\Response(
+     * @OA\Response(
      *      response=200,
      *      description="Returns a collection of demo entities",
-     *      @SWG\Schema(
+     *      @OA\JsonContent(
      *          type="array",
-     *          @SWG\Items(ref="#/definitions/DemoCollection")
+     *          @OA\Items(ref="#/components/schemas/DemoCollection")
      *      )
      * )
      * @Rest\QueryParam(name="counter", requirements="\d+", strict=true, nullable=true, description="The counter to be included in the answer (default: 1)")
@@ -77,15 +77,14 @@ final class DemoController extends AbstractController
     /**
      * Returns one demo entity
      *
-     * @SWG\Response(
+     * @OA\Response(
      *      response=200,
      *      description="Returns one demo entity (if you pass id = 0, a NotFoundException will be thrown)",
-     *      @SWG\Schema(ref="#/definitions/DemoEntity"),
+     *      @OA\JsonContent(ref="#/components/schemas/DemoEntity"),
      * )
-     * @SWG\Parameter(
+     * @OA\Parameter(
      *      name="id",
      *      in="path",
-     *      type="integer",
      *      description="Demo ID to fetch",
      *      required=true,
      * )
