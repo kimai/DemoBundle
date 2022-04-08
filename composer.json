@@ -16,12 +16,22 @@
             "homepage": "https://www.keleo.de"
         }
     ],
+    "extra": {
+        "kimai": {
+            "require": 20000,
+            "name": "Developer demo"
+        }
+    },
     "autoload": {
         "psr-4": {
             "KimaiPlugin\\DemoBundle\\": ""
         }
     },
     "config": {
+        "allow-plugins": {
+            "composer/package-versions-deprecated": false,
+            "symfony/flex": false
+        },
         "platform": {
             "php": "8.1.3"
         },
@@ -30,17 +40,11 @@
         },
         "sort-packages": true
     },
-    "extra": {
-        "kimai": {
-            "require": 20000,
-            "name": "Developer demo"
-        }
-    },
     "scripts": {
-        "codestyle": "../../../vendor/bin/php-cs-fixer fix --dry-run --verbose --show-progress=none",
-        "codestyle-fix": "../../../vendor/bin/php-cs-fixer fix",
-        "codestyle-check": "../../../vendor/bin/php-cs-fixer fix --dry-run --verbose --config=.php_cs.dist --using-cache=no --show-progress=none --format=checkstyle",
-        "phpstan": "../../../vendor/bin/phpstan analyse . -c phpstan.neon --level=7",
+        "codestyle": "vendor/bin/php-cs-fixer fix --dry-run --verbose --show-progress=none",
+        "codestyle-fix": "vendor/bin/php-cs-fixer fix",
+        "codestyle-check": "vendor/bin/php-cs-fixer fix --dry-run --verbose --using-cache=no --show-progress=none --format=checkstyle",
+        "phpstan": "vendor/bin/phpstan analyse . --configuration=phpstan.neon --level=7",
         "linting": [
             "composer validate --strict --no-check-version",
             "@codestyle-check",
@@ -49,7 +53,7 @@
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
-        "kevinpapst/kimai2": "dev-v2",
+        "kevinpapst/kimai2": "v2.x-dev",
         "phpstan/phpstan": "^1.0",
         "phpstan/phpstan-doctrine": "^1.0",
         "phpstan/phpstan-symfony": "^1.0",
