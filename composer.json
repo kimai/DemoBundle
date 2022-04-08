@@ -51,6 +51,7 @@
             "@phpstan"
         ]
     },
+    "minimum-stability": "dev",
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
         "kevinpapst/kimai2": "^2.0",
