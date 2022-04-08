@@ -51,14 +51,13 @@
             "@phpstan"
         ]
     },
-    "minimum-stability": "dev",
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
-        "kevinpapst/kimai2": "v2.x-dev",
+        "kevinpapst/kimai2": "^2.0",
         "phpstan/phpstan": "^1.0",
         "phpstan/phpstan-doctrine": "^1.0",
         "phpstan/phpstan-symfony": "^1.0",
-        "symfony/console": "^4.0",
-        "symfony/event-dispatcher": "^4.0"
+        "symfony/console": "^6.0",
+        "symfony/event-dispatcher": "^6.0"
     }
 }
