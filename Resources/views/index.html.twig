@@ -1,7 +1,9 @@
 {% extends 'base.html.twig' %}
 {% import "macros/widgets.html.twig" as widgets %}
+{% import "@Demo/actions.html.twig" as actions %}
 
 {% block page_title %}{{ 'Demo'|trans }}{% endblock %}
+{% block page_actions %}{{ actions.demo('index', entity.counter) }}{% endblock %}
 
 {% block main %}
 
@@ -9,4 +11,13 @@
 
     {{ widgets.callout('success', 'Your configuration key "some_setting" has the value: ' ~ configuration.someSetting) }}
 
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        document.addEventListener('kimai.initialized', function() {
+            KimaiReloadPageWidget.create('kimai.systemConfigUpdate', true);
+        });
+    </script>
 {% endblock %}

@@ -37,21 +37,22 @@
         }
     },
     "scripts": {
-        "codestyle": "php-cs-fixer fix --dry-run --verbose --show-progress=none",
-        "codestyle-fix": "php-cs-fixer fix",
-        "codestyle-check": "vendor/bin/php-cs-fixer fix --dry-run --verbose --config=.php_cs.dist --using-cache=no --show-progress=none --format=checkstyle",
-        "phpstan": "vendor/bin/phpstan analyse . -c phpstan.neon --level=7",
+        "codestyle": "../../../vendor/bin/php-cs-fixer fix --dry-run --verbose --show-progress=none",
+        "codestyle-fix": "../../../vendor/bin/php-cs-fixer fix",
+        "codestyle-check": "../../../vendor/bin/php-cs-fixer fix --dry-run --verbose --config=.php_cs.dist --using-cache=no --show-progress=none --format=checkstyle",
+        "phpstan": "../../../vendor/bin/phpstan analyse . -c phpstan.neon --level=7",
         "linting": [
-            "composer validate",
+            "composer validate --strict --no-check-version",
             "@codestyle-check",
             "@phpstan"
         ]
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^2.15",
-        "phpstan/phpstan": "^0.12.19",
-        "phpstan/phpstan-doctrine": "^0.12.10",
+        "friendsofphp/php-cs-fixer": "^3.0",
         "kevinpapst/kimai2": "dev-v2",
+        "phpstan/phpstan": "^1.0",
+        "phpstan/phpstan-doctrine": "^1.0",
+        "phpstan/phpstan-symfony": "^1.0",
         "symfony/console": "^4.0",
         "symfony/event-dispatcher": "^4.0"
     }

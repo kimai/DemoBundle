@@ -12,7 +12,7 @@ namespace KimaiPlugin\DemoBundle\EventSubscriber;
 
 use App\Event\SystemConfigurationEvent;
 use App\Form\Model\Configuration;
-use App\Form\Model\SystemConfiguration as SystemConfigurationModel;
+use App\Form\Model\SystemConfiguration;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
@@ -25,11 +25,10 @@ class SystemConfigurationSubscriber implements EventSubscriberInterface
         ];
     }
 
-    public function onSystemConfiguration(SystemConfigurationEvent $event)
+    public function onSystemConfiguration(SystemConfigurationEvent $event): void
     {
         $event->addConfiguration(
-            (new SystemConfigurationModel())
-            ->setSection('demo_config')
+            (new SystemConfiguration('demo_config'))
             ->setConfiguration([
                 (new Configuration())
                     ->setName('demo.some_setting')

@@ -15,9 +15,6 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 final class ThemeEventSubscriber implements EventSubscriberInterface
 {
-    /**
-     * @return array
-     */
     public static function getSubscribedEvents(): array
     {
         return [
@@ -25,34 +22,30 @@ final class ThemeEventSubscriber implements EventSubscriberInterface
         ];
     }
 
-    /**
-     * @param ThemeEvent $event
-     */
-    public function renderStylesheet(ThemeEvent $event)
+    public function renderStylesheet(ThemeEvent $event): void
     {
         $css = '
 <style type="text/css">
-    span.dot {
-      animation: dotColors 20s;
-      -webkit-animation: dotColors 20s;
+    span.label-customer span.badge,
+    span.label-project span.badge, 
+    span.label-activity span.badge 
+    {
+      animation: dotColors 4s step-end infinite;
     }
 
     @keyframes dotColors
     {
-      0%   {background: red;}
-      25%  {background: yellow;}
-      50%  {background: blue;}
-      75%  {background: green;}
-      100% {background: red;}
-    }
-
-    @-webkit-keyframes dotColors
-    {
-      0%   {background: red;}
-      25%  {background: yellow;}
-      50%  {background: blue;}
-      75%  {background: green;}
-      100% {background: red;}
+        0% { opacity: 1; }
+        10% { opacity: 0.9; }
+        20% { opacity: 0.8; }
+        30% { opacity: 0.7; }
+        40% { opacity: 0.6; }
+        50% { opacity: 0.5; }
+        60% { opacity: 0.4; }
+        70% { opacity: 0.3; }
+        80% { opacity: 0.2; }
+        90% { opacity: 0.1; }
+        100% { opacity: 0; }
     }
 </style>';
 

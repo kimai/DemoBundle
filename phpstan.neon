@@ -1,13 +1,14 @@
 includes:
-    - vendor/phpstan/phpstan-doctrine/extension.neon
+    - %rootDir%/../phpstan-symfony/extension.neon
+    - %rootDir%/../phpstan-symfony/rules.neon
+    - %rootDir%/../phpstan-doctrine/extension.neon
+    - %rootDir%/../phpstan-doctrine/rules.neon
+    - %rootDir%/../phpstan/conf/bleedingEdge.neon
 
 parameters:
+    excludePaths:
+        - vendor/
     treatPhpDocTypesAsCertain: false
     inferPrivatePropertyTypeFromConstructor: true
-    excludes_analyse:
-        - vendor/
-    ignoreErrors:
-        - '#Method (.*) has no return typehint specified.#'
-        - '#Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder\\NodeParentInterface::end\(\).#'
     checkMissingIterableValueType: false
-
+    checkGenericClassInNonGenericObjectType: false

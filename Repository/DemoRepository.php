@@ -17,7 +17,7 @@ final class DemoRepository
     /**
      * @var string
      */
-    private $storage;
+    private string $storage;
 
     public function __construct(string $dataDirectory)
     {
@@ -37,7 +37,7 @@ final class DemoRepository
         if ($data !== false) {
             $json = json_decode($data, true);
 
-            if (array_key_exists('counter', $json)) {
+            if (\array_key_exists('counter', $json)) {
                 $entity->setCounter($json['counter']);
             }
         }
@@ -45,7 +45,7 @@ final class DemoRepository
         return $entity;
     }
 
-    public function saveDemoEntity(DemoEntity $entity)
+    public function saveDemoEntity(DemoEntity $entity): void
     {
         $vars = [];
 

@@ -14,18 +14,18 @@ use App\Configuration\SystemConfiguration;
 
 final class DemoConfiguration
 {
-    /**
-     * @var SystemConfiguration
-     */
-    private $configuration;
-
-    public function __construct(SystemConfiguration $configuration)
+    public function __construct(private SystemConfiguration $configuration)
     {
-        $this->configuration = $configuration;
     }
 
     public function getSomeSetting(): string
     {
-        return (string) $this->configuration->find('demo.some_setting');
+        $e = $this->configuration->find('demo.some_setting');
+
+        if (\is_string($e)) {
+            return $e;
+        }
+
+        return '**empty**';
     }
 }
