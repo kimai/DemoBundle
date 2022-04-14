@@ -31,12 +31,10 @@ class SystemConfigurationSubscriber implements EventSubscriberInterface
         $event->addConfiguration(
             (new SystemConfiguration('demo_config'))
             ->setConfiguration([
-                (new Configuration())
-                    ->setName('demo.some_setting')
+                (new Configuration('demo.some_setting'))
                     ->setTranslationDomain('system-configuration')
                     ->setType(TextType::class),
-                (new Configuration())
-                    ->setName('demo.activate_dots')
+                (new Configuration('demo.activate_dots'))
                     ->setTranslationDomain('system-configuration')
                     ->setType(CheckboxType::class),
             ])
