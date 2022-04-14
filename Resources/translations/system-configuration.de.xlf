@@ -10,6 +10,10 @@
         <source>label.demo.some_setting</source>
         <target>Test Einstellung</target>
       </trans-unit>
+      <trans-unit id="fsMGh0T" resname="label.demo.activate_dots">
+        <source>label.demo.activate_dots</source>
+        <target>Farbwechsel in Farbpunkten aktivieren</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

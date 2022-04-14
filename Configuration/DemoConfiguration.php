@@ -28,4 +28,15 @@ final class DemoConfiguration
 
         return '**empty**';
     }
+
+    public function isColorChangeActivated(): bool
+    {
+        $e = $this->configuration->find('demo.activate_dots');
+
+        if (\is_string($e) || \is_int($e)) {
+            return (bool) $e;
+        }
+
+        return false;
+    }
 }

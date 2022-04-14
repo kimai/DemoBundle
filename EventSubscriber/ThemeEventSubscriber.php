@@ -11,10 +11,15 @@
 namespace KimaiPlugin\DemoBundle\EventSubscriber;
 
 use App\Event\ThemeEvent;
+use KimaiPlugin\DemoBundle\Configuration\DemoConfiguration;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 final class ThemeEventSubscriber implements EventSubscriberInterface
 {
+    public function __construct(private DemoConfiguration $demoConfiguration)
+    {
+    }
+
     public static function getSubscribedEvents(): array
     {
         return [
@@ -24,6 +29,10 @@ final class ThemeEventSubscriber implements EventSubscriberInterface
 
     public function renderStylesheet(ThemeEvent $event): void
     {
+        if (!$this->demoConfiguration->isColorChangeActivated()) {
+            return;
+        }
+
         $css = '
 <style type="text/css">
     span.label-customer span.badge,
