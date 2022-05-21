@@ -1,5 +1,4 @@
 includes:
-    - %rootDir%/../phpstan-doctrine/extension.neon
     - %rootDir%/../phpstan-symfony/extension.neon
     - %rootDir%/../phpstan-symfony/rules.neon
 
