@@ -1,13 +1,12 @@
 includes:
-    - vendor/phpstan/phpstan-doctrine/extension.neon
+    - %rootDir%/../phpstan-doctrine/extension.neon
+    - %rootDir%/../phpstan-symfony/extension.neon
+    - %rootDir%/../phpstan-symfony/rules.neon
 
 parameters:
     treatPhpDocTypesAsCertain: false
     inferPrivatePropertyTypeFromConstructor: true
-    excludes_analyse:
+    excludePaths:
         - vendor/
-    ignoreErrors:
-        - '#Method (.*) has no return typehint specified.#'
-        - '#Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder\\NodeParentInterface::end\(\).#'
     checkMissingIterableValueType: false
 
