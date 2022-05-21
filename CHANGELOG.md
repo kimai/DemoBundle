@@ -1,14 +1,14 @@
 # Changelog
 
-## 0.11
-
-- Renovate code base
-- Upgraded dependencies
-- Added invoice number generator
-
 ## 0.10
 
+- Added invoice number generator
+- Fixed avatar image 
+- Fixed migrations - thanks @ymarkus
+- Fixed translation files (xlf vs xliff, target language, resname via `bin/console kimai:translations --resname`)
 - Fix deprecations
+- Upgraded dependencies
+- Renovate code base (code styles, phpstan issues)
 
 ## 0.9
 
