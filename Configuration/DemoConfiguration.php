@@ -14,9 +14,6 @@ use App\Configuration\SystemConfiguration;
 
 final class DemoConfiguration
 {
-    /**
-     * @var SystemConfiguration
-     */
     private $configuration;
 
     public function __construct(SystemConfiguration $configuration)
@@ -26,6 +23,11 @@ final class DemoConfiguration
 
     public function getSomeSetting(): string
     {
-        return (string) $this->configuration->find('demo.some_setting');
+        $config = $this->configuration->find('demo.some_setting');
+        if (!\is_string($config)) {
+            return 'NOT SET';
+        }
+
+        return $config;
     }
 }

@@ -18,27 +18,15 @@ use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
 final class PluginActionsSubscriber implements EventSubscriberInterface
 {
-    /**
-     * @var UrlGeneratorInterface
-     */
     private $router;
-    /**
-     * @var AuthorizationCheckerInterface
-     */
     private $security;
 
-    /**
-     * @param UrlGeneratorInterface $router
-     */
     public function __construct(UrlGeneratorInterface $router, AuthorizationCheckerInterface $security)
     {
         $this->router = $router;
         $this->security = $security;
     }
 
-    /**
-     * @return array
-     */
     public static function getSubscribedEvents(): array
     {
         return [
@@ -46,7 +34,7 @@ final class PluginActionsSubscriber implements EventSubscriberInterface
         ];
     }
 
-    public function onPluginEvent(ThemeEvent $event)
+    public function onPluginEvent(ThemeEvent $event): void
     {
         $payload = $event->getPayload();
 

@@ -15,9 +15,6 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 final class ThemeEventSubscriber implements EventSubscriberInterface
 {
-    /**
-     * @return array
-     */
     public static function getSubscribedEvents(): array
     {
         return [
@@ -25,10 +22,7 @@ final class ThemeEventSubscriber implements EventSubscriberInterface
         ];
     }
 
-    /**
-     * @param ThemeEvent $event
-     */
-    public function renderStylesheet(ThemeEvent $event)
+    public function renderStylesheet(ThemeEvent $event): void
     {
         $css = '
 <style type="text/css">

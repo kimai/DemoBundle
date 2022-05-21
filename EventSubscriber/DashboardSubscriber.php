@@ -17,9 +17,6 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class DashboardSubscriber implements EventSubscriberInterface
 {
-    /**
-     * @var DemoWidget
-     */
     private $widget;
 
     public function __construct(DemoWidget $widget)
@@ -27,9 +24,6 @@ class DashboardSubscriber implements EventSubscriberInterface
         $this->widget = $widget;
     }
 
-    /**
-     * @return array
-     */
     public static function getSubscribedEvents(): array
     {
         return [
@@ -37,10 +31,7 @@ class DashboardSubscriber implements EventSubscriberInterface
         ];
     }
 
-    /**
-     * @param DashboardEvent $event
-     */
-    public function onDashboardEvent(DashboardEvent $event)
+    public function onDashboardEvent(DashboardEvent $event): void
     {
         $section = new CompoundRow();
         $section->setTitle('What a great crowd!');

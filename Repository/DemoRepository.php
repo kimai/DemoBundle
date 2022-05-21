@@ -45,7 +45,7 @@ final class DemoRepository
         return $entity;
     }
 
-    public function saveDemoEntity(DemoEntity $entity)
+    public function saveDemoEntity(DemoEntity $entity): void
     {
         $vars = [];
 

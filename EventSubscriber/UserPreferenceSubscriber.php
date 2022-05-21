@@ -25,7 +25,7 @@ class UserPreferenceSubscriber implements EventSubscriberInterface
         ];
     }
 
-    public function loadUserPreferences(UserPreferenceEvent $event)
+    public function loadUserPreferences(UserPreferenceEvent $event): void
     {
         $event->addPreference(
             (new UserPreference())

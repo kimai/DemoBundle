@@ -18,14 +18,14 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class SystemConfigurationSubscriber implements EventSubscriberInterface
 {
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             SystemConfigurationEvent::class => ['onSystemConfiguration', 100],
         ];
     }
 
-    public function onSystemConfiguration(SystemConfigurationEvent $event)
+    public function onSystemConfiguration(SystemConfigurationEvent $event): void
     {
         $event->addConfiguration(
             (new SystemConfigurationModel())

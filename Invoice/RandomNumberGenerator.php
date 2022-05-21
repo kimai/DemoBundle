@@ -15,30 +15,23 @@ use App\Invoice\NumberGeneratorInterface;
 
 /**
  * Class RandomNumberGenerator is meant for testing purpose only.
- *
- * @author Kevin Papst <kevin@kevinpapst.de>
  */
 class RandomNumberGenerator implements NumberGeneratorInterface
 {
     /**
      * @var InvoiceModel
+     * @phpstan-ignore-next-line
      */
-    protected $model;
+    private $model;
 
-    /**
-     * @param InvoiceModel $model
-     */
-    public function setModel(InvoiceModel $model)
+    public function setModel(InvoiceModel $model): void
     {
         $this->model = $model;
     }
 
-    /**
-     * @return string
-     */
     public function getInvoiceNumber(): string
     {
-        return rand(1000000, 9999999);
+        return (string) rand(1000000, 9999999);
     }
 
     public function getId(): string

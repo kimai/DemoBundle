@@ -24,7 +24,7 @@ class DemoExtension extends AbstractPluginExtension implements PrependExtensionI
      * @param ContainerBuilder $container
      * @throws \Exception
      */
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
@@ -35,7 +35,7 @@ class DemoExtension extends AbstractPluginExtension implements PrependExtensionI
         $loader->load('services.yaml');
     }
 
-    public function prepend(ContainerBuilder $container)
+    public function prepend(ContainerBuilder $container): void
     {
         $yamlParser = new Parser();
 

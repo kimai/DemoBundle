@@ -39,12 +39,12 @@ class MetaFieldSubscriber implements EventSubscriberInterface
             ->setIsVisible(true);
     }
 
-    public function loadTimesheetMeta(TimesheetMetaDefinitionEvent $event)
+    public function loadTimesheetMeta(TimesheetMetaDefinitionEvent $event): void
     {
         $event->getEntity()->setMetaField($this->getMetaField());
     }
 
-    public function loadTimesheetFields(TimesheetMetaDisplayEvent $event)
+    public function loadTimesheetFields(TimesheetMetaDisplayEvent $event): void
     {
         $event->addField($this->getMetaField());
     }
