@@ -1,9 +1,9 @@
 {
     "name": "keleo/demo-plugin",
-    "description": "Showcase extension points within Kimai",
+    "description": "Showcase plugin for Kimai, with demos for many extension points within the core",
     "homepage": "https://www.kimai.org/store/demo-bundle.html",
     "type": "kimai-plugin",
-    "version": "0.9",
+    "version": "0.11",
     "keywords": [
         "kimai",
         "kimai-plugin"
@@ -16,26 +16,29 @@
             "homepage": "https://www.keleo.de"
         }
     ],
+    "extra": {
+        "kimai": {
+            "require": "1.11",
+            "name": "Developer demo"
+        }
+    },
     "autoload": {
         "psr-4": {
             "KimaiPlugin\\DemoBundle\\": ""
         }
     },
     "config": {
+        "allow-plugins": {
+            "composer/package-versions-deprecated": false,
+            "symfony/flex": false
+        },
         "platform": {
-            "php": "7.2.9"
+            "php": "7.3"
         },
         "preferred-install": {
             "*": "dist"
         },
         "sort-packages": true
-    },
-    "extra": {
-        "kimai": {
-            "require": "1.11",
-            "version": "0.9",
-            "name": "Developer demo"
-        }
     },
     "scripts": {
         "codestyle": "vendor/bin/php-cs-fixer fix --dry-run --verbose --show-progress=none",

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.11
+
+- Renovate code base
+- Upgraded dependencies
+- Added invoice number generator
+
 ## 0.10
 
 - Fix deprecations

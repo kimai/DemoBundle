@@ -9,7 +9,7 @@ jobs:
         runs-on: ubuntu-latest
         strategy:
             matrix:
-                php: ['7.2','7.3','7.4']
+                php: ['7.4', '8.0', '8.1']
 
         name: Linting - PHP ${{ matrix.php }}
         steps:
@@ -20,6 +20,6 @@ jobs:
                     coverage: none
                     extensions: intl
             -   run: composer install --no-progress
-            -   run: composer validate
+            -   run: composer validate --strict --no-check-version
             -   run: composer codestyle-check
             -   run: composer phpstan
