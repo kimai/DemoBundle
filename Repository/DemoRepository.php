@@ -37,7 +37,7 @@ final class DemoRepository
         if ($data !== false) {
             $json = json_decode($data, true);
 
-            if (array_key_exists('counter', $json)) {
+            if (\array_key_exists('counter', $json)) {
                 $entity->setCounter($json['counter']);
             }
         }
