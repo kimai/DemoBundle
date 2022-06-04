@@ -8,7 +8,9 @@ services:
 
     KimaiPlugin\DemoBundle\:
         resource: '../../*'
-        exclude: '../../{Resources,Migrations}'
+        exclude:
+            - '../../Migrations/'
+            - '../../Resources/'
 
     KimaiPlugin\DemoBundle\Controller\:
         resource: '../../Controller'
