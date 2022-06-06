@@ -17,11 +17,8 @@ use App\Widget\WidgetInterface;
 
 class DemoWidget extends AbstractWidget
 {
-    private $repository;
-
-    public function __construct(UserRepository $repository)
+    public function __construct(private UserRepository $repository)
     {
-        $this->repository = $repository;
     }
 
     public function getWidth(): int
@@ -34,11 +31,19 @@ class DemoWidget extends AbstractWidget
         return WidgetInterface::HEIGHT_MAXIMUM;
     }
 
+    /**
+     * @param array<string, string|int> $options
+     * @return array<string, string|int>
+     */
     public function getOptions(array $options = []): array
     {
         return array_merge(['id' => 'DemoWidget'], parent::getOptions($options));
     }
 
+    /**
+     * @param array<string, string|int> $options
+     * @return array<string, mixed>
+     */
     public function getData(array $options = [])
     {
         $query = new UserQuery();

@@ -20,7 +20,7 @@ use Symfony\Component\Yaml\Parser;
 class DemoExtension extends AbstractPluginExtension implements PrependExtensionInterface
 {
     /**
-     * @param array $configs
+     * @param array<string, mixed> $configs
      * @param ContainerBuilder $container
      * @throws \Exception
      */
