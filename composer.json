@@ -1,6 +1,6 @@
 {
     "name": "keleo/demo-plugin",
-    "description": "Showcase extension points within Kimai",
+    "description": "Showcase plugin for Kimai, with demos for many extension points within the core",
     "homepage": "https://www.kimai.org/store/demo-bundle.html",
     "type": "kimai-plugin",
     "version": "2.0",

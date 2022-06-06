@@ -8,6 +8,16 @@ Compatibility: requires minimum Kimai 2.0
 - Fix deprecations
 - Do not rely on theme related classes
 
+## 0.10
+
+- Added invoice number generator
+- Fixed avatar image 
+- Fixed migrations - thanks @ymarkus
+- Fixed translation files (xlf vs xliff, target language, resname via `bin/console kimai:translations --resname`)
+- Fix deprecations
+- Upgraded dependencies
+- Renovate code base (code styles, phpstan issues)
+
 ## 0.9
 
 **Requires Kimai 1.11**
