@@ -28,9 +28,7 @@ class UserPreferenceSubscriber implements EventSubscriberInterface
     public function loadUserPreferences(UserPreferenceEvent $event): void
     {
         $event->addPreference(
-            (new UserPreference())
-                ->setName('demo_money')
-                ->setValue(1)
+            (new UserPreference('demo_money', 1))
                 ->setOrder(900)
                 ->setType(MoneyType::class)
                 ->setEnabled(true)
