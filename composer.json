@@ -41,10 +41,10 @@
         "sort-packages": true
     },
     "scripts": {
-        "codestyle": "../../../vendor/bin/php-cs-fixer fix --dry-run --verbose --show-progress=none",
-        "codestyle-fix": "../../../vendor/bin/php-cs-fixer fix",
-        "codestyle-check": "../../../vendor/bin/php-cs-fixer fix --dry-run --verbose --using-cache=no --show-progress=none --format=checkstyle",
-        "phpstan": "../../../vendor/bin/phpstan analyse . --configuration=phpstan.neon --level=7",
+        "codestyle": "vendor/bin/php-cs-fixer fix --dry-run --verbose --show-progress=none",
+        "codestyle-fix": "vendor/bin/php-cs-fixer fix",
+        "codestyle-check": "vendor/bin/php-cs-fixer fix --dry-run --verbose --using-cache=no --show-progress=none --format=checkstyle",
+        "phpstan": "vendor/bin/phpstan analyse . --configuration=phpstan.neon --level=7",
         "linting": [
             "composer validate --strict --no-check-version",
             "@codestyle-check",
