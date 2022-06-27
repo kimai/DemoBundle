@@ -74,7 +74,7 @@
             </thead>
             <tbody>
             {% for entry in model.calculator.entries %}
-                {% set duration = entry.duration|duration_decimal %}
+                {% set duration = entry.duration|duration(true) %}
                 {% if entry.fixedRate %}
                     {% set rate = entry.fixedRate %}
                     {% set duration = entry.amount|amount %}
