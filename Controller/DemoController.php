@@ -10,13 +10,16 @@
 
 namespace KimaiPlugin\DemoBundle\Controller;
 
+use App\Configuration\LocaleService;
 use App\Controller\AbstractController;
+use App\Entity\Timesheet;
 use KimaiPlugin\DemoBundle\Configuration\DemoConfiguration;
 use KimaiPlugin\DemoBundle\Entity\DemoEntity;
 use KimaiPlugin\DemoBundle\Form\DemoType;
 use KimaiPlugin\DemoBundle\Repository\DemoRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -25,29 +28,25 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 final class DemoController extends AbstractController
 {
-    /**
-     * @var DemoRepository
-     */
-    private $repository;
-    /**
-     * @var DemoConfiguration
-     */
-    private $configuration;
-
-    public function __construct(DemoRepository $repository, DemoConfiguration $configuration)
+    public function __construct(private DemoRepository $repository, private DemoConfiguration $configuration)
     {
-        $this->repository = $repository;
-        $this->configuration = $configuration;
     }
 
     /**
      * @Route(path="", name="demo", methods={"GET", "POST"})
-
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function indexAction(Request $request)
+    public function index(LocaleService $localeService): Response
     {
+        // some demo data, which can be viewed in the "test locale" box
+        $begin = 240 * 3600 + rand(1, 3 * 3600);
+        $end = $begin + (rand(10 * 3600, 15 * 3600));
+        $timesheet = new Timesheet();
+        $timesheet->setBegin(new \DateTime('-' . $begin . 'seconds'));
+        $timesheet->setEnd(new \DateTime('-' . $end . 'seconds'));
+        $timesheet->setDuration($end - $begin);
+        $timesheet->setHourlyRate(48.25);
+        $timesheet->setRate(1241.25);
+
         $entity = $this->repository->getDemoEntity();
 
         $entity->increaseCounter();
@@ -56,6 +55,10 @@ final class DemoController extends AbstractController
         return $this->render('@Demo/index.html.twig', [
             'entity' => $entity,
             'configuration' => $this->configuration,
+            // for locale testing
+            'now' => new \DateTime(),
+            'timesheet' => $timesheet,
+            'locales' => $localeService->getAllLocales(),
         ]);
     }
 
@@ -63,7 +66,7 @@ final class DemoController extends AbstractController
      * @param DemoEntity $entity
      * @return \Symfony\Component\Form\FormInterface
      */
-    protected function getEditForm(DemoEntity $entity)
+    private function getEditForm(DemoEntity $entity)
     {
         return $this->createForm(DemoType::class, $entity, [
             'action' => $this->generateUrl('demo'),
