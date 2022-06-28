@@ -14,11 +14,9 @@ use App\Configuration\LocaleService;
 use App\Controller\AbstractController;
 use App\Entity\Timesheet;
 use KimaiPlugin\DemoBundle\Configuration\DemoConfiguration;
-use KimaiPlugin\DemoBundle\Entity\DemoEntity;
 use KimaiPlugin\DemoBundle\Form\DemoType;
 use KimaiPlugin\DemoBundle\Repository\DemoRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -52,6 +50,10 @@ final class DemoController extends AbstractController
         $entity->increaseCounter();
         $this->repository->saveDemoEntity($entity);
 
+        $form = $this->createForm(DemoType::class, $entity, [
+            'action' => $this->generateUrl('demo'),
+        ]);
+
         return $this->render('@Demo/index.html.twig', [
             'entity' => $entity,
             'configuration' => $this->configuration,
@@ -59,17 +61,8 @@ final class DemoController extends AbstractController
             'now' => new \DateTime(),
             'timesheet' => $timesheet,
             'locales' => $localeService->getAllLocales(),
-        ]);
-    }
-
-    /**
-     * @param DemoEntity $entity
-     * @return \Symfony\Component\Form\FormInterface
-     */
-    private function getEditForm(DemoEntity $entity)
-    {
-        return $this->createForm(DemoType::class, $entity, [
-            'action' => $this->generateUrl('demo'),
+            // TODO - unused
+            'form' => $form->createView(),
         ]);
     }
 }
