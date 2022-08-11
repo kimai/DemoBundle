@@ -31,14 +31,8 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 final class DemoController extends AbstractController
 {
-    /**
-     * @var ViewHandlerInterface
-     */
-    private $viewHandler;
-
-    public function __construct(ViewHandlerInterface $viewHandler)
+    public function __construct(private ViewHandlerInterface $viewHandler)
     {
-        $this->viewHandler = $viewHandler;
     }
 
     /**
@@ -49,7 +43,7 @@ final class DemoController extends AbstractController
      *      description="Returns a collection of demo entities",
      *      @OA\JsonContent(
      *          type="array",
-     *          @OA\Items(ref="#/components/schemas/DemoCollection")
+     *          @OA\Items(ref="#/components/schemas/DemoEntity")
      *      )
      * )
      * @Rest\QueryParam(name="counter", requirements="\d+", strict=true, nullable=true, description="The counter to be included in the answer (default: 1)")

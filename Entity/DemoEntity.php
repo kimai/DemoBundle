@@ -10,27 +10,36 @@
 
 namespace KimaiPlugin\DemoBundle\Entity;
 
+use JMS\Serializer\Annotation as Serializer;
+
+/**
+ * @Serializer\ExclusionPolicy("all")
+ */
 class DemoEntity
 {
     /**
-     * @var int
+     * Unique entity ID
+     *
+     * @Serializer\Expose()
+     * @Serializer\Groups({"Default"})
      */
-    private $id;
+    private int $id = 1;
     /**
-     * @var int
+     * Demo counter value
+     *
+     * @Serializer\Expose()
+     * @Serializer\Groups({"Default"})
      */
-    private $counter = 0;
+    private int $counter = 0;
 
-    public function getId(): ?int
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function setId(int $id): DemoEntity
+    public function setId(int $id): void
     {
         $this->id = $id;
-
-        return $this;
     }
 
     public function getCounter(): int
@@ -38,17 +47,13 @@ class DemoEntity
         return $this->counter;
     }
 
-    public function setCounter(int $counter): DemoEntity
+    public function setCounter(int $counter): void
     {
         $this->counter = $counter;
-
-        return $this;
     }
 
-    public function increaseCounter(): DemoEntity
+    public function increaseCounter(): void
     {
         $this->counter++;
-
-        return $this;
     }
 }
