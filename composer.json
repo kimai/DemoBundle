@@ -30,7 +30,8 @@
     "config": {
         "allow-plugins": {
             "composer/package-versions-deprecated": false,
-            "symfony/flex": false
+            "symfony/flex": false,
+            "symfony/runtime": false
         },
         "platform": {
             "php": "8.1.3"
