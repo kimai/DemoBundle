@@ -33,7 +33,7 @@ class ActionsSubscriber extends AbstractActionsSubscriber
         $event->addAction('counter', ['icon' => false, 'title' => $counter, 'onclick' => 'alert("You visited this page ' . $counter . ' times"); return false;', 'url' => '#']);
 
         if ($this->isGranted('system_configuration')) {
-            $event->addAction('settings', ['title' => 'settings', 'translation_domain' => 'actions', 'url' => $this->path('system_configuration_section', ['section' => 'demo_config']), 'class' => 'modal-ajax-form']);
+            $event->addSettings($this->path('system_configuration_section', ['section' => 'demo_config']));
         }
     }
 }
