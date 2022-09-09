@@ -1,7 +1,8 @@
 <?php
 
 /*
- * This file is part of the Kimai time-tracking app.
+ * This file is part of the DemoBundle for Kimai 2.
+ * All rights reserved by Kevin Papst (www.kevinpapst.de).
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -9,10 +10,10 @@
 
 namespace KimaiPlugin\DemoBundle\Invoice;
 
+use App\Invoice\Calculator\AbstractSumInvoiceCalculator;
 use App\Invoice\CalculatorInterface;
 use App\Invoice\InvoiceItem;
 use App\Invoice\InvoiceItemInterface;
-use App\Invoice\Calculator\AbstractSumInvoiceCalculator;
 
 /**
  * A calculator that sums up the invoice item records by activity.
@@ -66,13 +67,14 @@ class DemoSortActivityInvoiceCalculator extends AbstractSumInvoiceCalculator imp
         usort($result_array, function ($a, $b) {
             $compare_a = $a->getActivity()->getName();
             $compare_b = $b->getActivity()->getName();
-    
+
             if ($compare_a == $compare_b) {
                 return 0;
-            };
+            }
+
             return ($compare_a < $compare_b) ? -1 : 1;
         });
-    
+
         return $result_array;
     }
 
