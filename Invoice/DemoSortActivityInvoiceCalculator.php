@@ -12,6 +12,7 @@ namespace KimaiPlugin\DemoBundle\Invoice;
 use App\Invoice\CalculatorInterface;
 use App\Invoice\InvoiceItem;
 use App\Invoice\InvoiceItemInterface;
+use App\Invoice\Calculator\AbstractSumInvoiceCalculator;
 
 /**
  * A calculator that sums up the invoice item records by activity.
