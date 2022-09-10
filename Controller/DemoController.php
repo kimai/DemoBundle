@@ -13,6 +13,7 @@ namespace KimaiPlugin\DemoBundle\Controller;
 use App\Configuration\LocaleService;
 use App\Controller\AbstractController;
 use App\Entity\Timesheet;
+use App\Utils\PageSetup;
 use KimaiPlugin\DemoBundle\Configuration\DemoConfiguration;
 use KimaiPlugin\DemoBundle\Form\DemoType;
 use KimaiPlugin\DemoBundle\Repository\DemoRepository;
@@ -54,7 +55,12 @@ final class DemoController extends AbstractController
             'action' => $this->generateUrl('demo'),
         ]);
 
+        $page = new PageSetup('Demo');
+        $page->setActionName('demo');
+        $page->setActionPayload(['counter' => $entity->getCounter()]);
+
         return $this->render('@Demo/index.html.twig', [
+            'page_setup' => $page,
             'entity' => $entity,
             'configuration' => $this->configuration,
             // for locale testing

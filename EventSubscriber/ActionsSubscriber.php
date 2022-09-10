@@ -31,9 +31,5 @@ class ActionsSubscriber extends AbstractActionsSubscriber
         // TODO show this counter
         $counter = (int) $payload['counter'];
         $event->addAction('counter', ['icon' => false, 'title' => $counter, 'onclick' => 'alert("You visited this page ' . $counter . ' times"); return false;', 'url' => '#']);
-
-        if ($this->isGranted('system_configuration')) {
-            $event->addSettings($this->path('system_configuration_section', ['section' => 'demo_config']));
-        }
     }
 }
