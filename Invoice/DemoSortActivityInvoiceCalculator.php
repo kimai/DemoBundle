@@ -10,17 +10,17 @@
 
 namespace KimaiPlugin\DemoBundle\Invoice;
 
+use App\Entity\ExportableItem;
 use App\Invoice\Calculator\AbstractSumInvoiceCalculator;
 use App\Invoice\CalculatorInterface;
 use App\Invoice\InvoiceItem;
-use App\Invoice\InvoiceItemInterface;
 
 /**
  * A calculator that sums up the invoice item records by activity.
  */
 class DemoSortActivityInvoiceCalculator extends AbstractSumInvoiceCalculator implements CalculatorInterface
 {
-    protected function calculateSumIdentifier(InvoiceItemInterface $invoiceItem): string
+    protected function calculateSumIdentifier(ExportableItem $invoiceItem): string
     {
         if (null === $invoiceItem->getActivity()) {
             return '__NULL__';
@@ -29,7 +29,7 @@ class DemoSortActivityInvoiceCalculator extends AbstractSumInvoiceCalculator imp
         return (string) $invoiceItem->getActivity()->getId();
     }
 
-    protected function mergeSumInvoiceItem(InvoiceItem $invoiceItem, InvoiceItemInterface $entry)
+    protected function mergeSumInvoiceItem(InvoiceItem $invoiceItem, ExportableItem $entry): void
     {
         if (null === $entry->getActivity()) {
             return;
@@ -42,7 +42,7 @@ class DemoSortActivityInvoiceCalculator extends AbstractSumInvoiceCalculator imp
         }
     }
 
-    public function getEntries()
+    public function getEntries(): array
     {
         $entries = $this->model->getEntries();
         if (empty($entries)) {
@@ -64,9 +64,9 @@ class DemoSortActivityInvoiceCalculator extends AbstractSumInvoiceCalculator imp
         }
 
         $result_array = array_values($invoiceItems);
-        usort($result_array, function ($a, $b) {
-            $compare_a = $a->getActivity()->getName();
-            $compare_b = $b->getActivity()->getName();
+        usort($result_array, function (InvoiceItem $a, InvoiceItem $b) {
+            $compare_a = $a->getActivity()?->getName();
+            $compare_b = $b->getActivity()?->getName();
 
             if ($compare_a == $compare_b) {
                 return 0;
@@ -78,9 +78,6 @@ class DemoSortActivityInvoiceCalculator extends AbstractSumInvoiceCalculator imp
         return $result_array;
     }
 
-    /**
-     * @return string
-     */
     public function getId(): string
     {
         return 'sortbyActivity';
