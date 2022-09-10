@@ -2,7 +2,7 @@
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
   <file source-language="en" target-language="en" datatype="plaintext" original="invoice-calculator.en.xlf">
     <body>
-      <trans-unit id="TKOPO.X" resname="sortbyActivity">
+      <trans-unit id="MxFF3RM" resname="sortbyActivity">
         <source>sortbyActivity</source>
         <target>Demo - Activity: one entry per activity, sorted</target>
       </trans-unit>
