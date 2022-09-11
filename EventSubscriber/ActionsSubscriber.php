@@ -12,9 +12,16 @@ namespace KimaiPlugin\DemoBundle\EventSubscriber;
 
 use App\Event\PageActionsEvent;
 use App\EventSubscriber\Actions\AbstractActionsSubscriber;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
 class ActionsSubscriber extends AbstractActionsSubscriber
 {
+    public function __construct(AuthorizationCheckerInterface $auth, UrlGeneratorInterface $urlGenerator, private string $environment)
+    {
+        parent::__construct($auth, $urlGenerator);
+    }
+
     public static function getActionName(): string
     {
         return 'demo';
@@ -23,6 +30,19 @@ class ActionsSubscriber extends AbstractActionsSubscriber
     public function onActions(PageActionsEvent $event): void
     {
         $payload = $event->getPayload();
+
+        $route = 'demo_error';
+        if ($this->environment === 'dev') {
+            $route = '_preview_error';
+        }
+
+        foreach (['403', '404', '500'] as $code) {
+            $event->addAction('error_' . $code, [
+                'icon' => 'fas fa-bug',
+                'title' => 'Error ' . $code,
+                'url' => $this->path($route, ['code' => $code])
+            ]);
+        }
 
         if (!isset($payload['counter'])) {
             return;

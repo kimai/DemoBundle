@@ -71,4 +71,18 @@ final class DemoController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    /**
+     * @Route(path="{code}", name="demo_error", methods={"GET"})
+     */
+    public function error(string $code): Response
+    {
+        if ($code === '403') {
+            throw $this->createAccessDeniedException();
+        } elseif ($code === '404') {
+            throw $this->createNotFoundException();
+        }
+
+        throw new \Exception('Error 500');
+    }
 }
