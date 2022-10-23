@@ -47,6 +47,7 @@ class DemoWidget extends AbstractWidget
     public function getData(array $options = [])
     {
         $query = new UserQuery();
+        $query->setSystemAccount(false);
         $amount = $this->repository->countUsersForQuery($query);
 
         return [
