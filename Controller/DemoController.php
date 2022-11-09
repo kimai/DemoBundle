@@ -21,19 +21,15 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route(path="/admin/demo")
- * @Security("is_granted('demo')")
- */
+#[Route(path: '/admin/demo')]
+#[Security("is_granted('demo')")]
 final class DemoController extends AbstractController
 {
     public function __construct(private DemoRepository $repository, private DemoConfiguration $configuration)
     {
     }
 
-    /**
-     * @Route(path="", name="demo", methods={"GET", "POST"})
-     */
+    #[Route(path: '', name: 'demo', methods: ['GET', 'POST'])]
     public function index(LocaleService $localeService): Response
     {
         // some demo data, which can be viewed in the "test locale" box
@@ -72,9 +68,7 @@ final class DemoController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route(path="{code}", name="demo_error", methods={"GET"})
-     */
+    #[Route(path: '{code}', name: 'demo_error', methods: ['GET'])]
     public function error(string $code): Response
     {
         if ($code === '403') {

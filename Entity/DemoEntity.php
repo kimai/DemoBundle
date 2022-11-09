@@ -12,24 +12,20 @@ namespace KimaiPlugin\DemoBundle\Entity;
 
 use JMS\Serializer\Annotation as Serializer;
 
-/**
- * @Serializer\ExclusionPolicy("all")
- */
+#[Serializer\ExclusionPolicy('all')]
 class DemoEntity
 {
     /**
      * Unique entity ID
-     *
-     * @Serializer\Expose()
-     * @Serializer\Groups({"Default"})
      */
+    #[Serializer\Expose]
+    #[Serializer\Groups(['Default'])]
     private int $id = 1;
     /**
      * Demo counter value
-     *
-     * @Serializer\Expose()
-     * @Serializer\Groups({"Default"})
      */
+    #[Serializer\Expose]
+    #[Serializer\Groups(['Default'])]
     private int $counter = 0;
 
     public function getId(): int

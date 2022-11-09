@@ -17,18 +17,15 @@ use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandlerInterface;
 use KimaiPlugin\DemoBundle\Entity\DemoEntity;
 use Nelmio\ApiDocBundle\Annotation\Security as ApiSecurity;
-use OpenApi\Annotations as OA;
+use OpenApi\Attributes as OA;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route(path="/demos")
- * @OA\Tag(name="Demo")
- *
- * @Security("is_granted('ROLE_USER')")
- */
+#[Route(path: '/demos')]
+#[OA\Tag(name: 'Demo')]
+#[Security("is_granted('ROLE_USER')")]
 final class DemoController extends AbstractController
 {
     public function __construct(private ViewHandlerInterface $viewHandler)
@@ -37,22 +34,12 @@ final class DemoController extends AbstractController
 
     /**
      * Returns a collection of demo entities
-     *
-     * @OA\Response(
-     *      response=200,
-     *      description="Returns a collection of demo entities",
-     *      @OA\JsonContent(
-     *          type="array",
-     *          @OA\Items(ref="#/components/schemas/DemoEntity")
-     *      )
-     * )
-     * @Rest\QueryParam(name="counter", requirements="\d+", strict=true, nullable=true, description="The counter to be included in the answer (default: 1)")
-     *
-     * @Rest\Get
-     *
-     * @ApiSecurity(name="apiUser")
-     * @ApiSecurity(name="apiToken")
      */
+    #[OA\Response(response: 200, description: 'Returns a collection of demo entities', content: new OA\JsonContent(type: 'array', items: new OA\Items(ref: '#/components/schemas/DemoEntity')))]
+    #[Rest\QueryParam(name: 'counter', requirements: '\d+', strict: true, nullable: true, description: 'The counter to be included in the answer (default: 1)')]
+    #[Rest\Get]
+    #[ApiSecurity(name: 'apiUser')]
+    #[ApiSecurity(name: 'apiToken')]
     public function cgetAction(ParamFetcherInterface $paramFetcher): Response
     {
         $demo = new DemoEntity();
@@ -70,24 +57,12 @@ final class DemoController extends AbstractController
 
     /**
      * Returns one demo entity
-     *
-     * @OA\Response(
-     *      response=200,
-     *      description="Returns one demo entity (if you pass id = 0, a NotFoundException will be thrown)",
-     *      @OA\JsonContent(ref="#/components/schemas/DemoEntity"),
-     * )
-     * @OA\Parameter(
-     *      name="id",
-     *      in="path",
-     *      description="Demo ID to fetch",
-     *      required=true,
-     * )
-     *
-     * @Rest\Get(path="/{id}")
-     *
-     * @ApiSecurity(name="apiUser")
-     * @ApiSecurity(name="apiToken")
      */
+    #[OA\Response(response: 200, description: 'Returns one demo entity (if you pass id = 0, a NotFoundException will be thrown)', content: new OA\JsonContent(ref: '#/components/schemas/DemoEntity'))]
+    #[OA\Parameter(name: 'id', in: 'path', description: 'Demo ID to fetch', required: true)]
+    #[Rest\Get(path: '/{id}')]
+    #[ApiSecurity(name: 'apiUser')]
+    #[ApiSecurity(name: 'apiToken')]
     public function getAction(int $id): Response
     {
         if (0 === $id) {
