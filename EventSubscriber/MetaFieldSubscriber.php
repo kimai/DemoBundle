@@ -30,13 +30,15 @@ class MetaFieldSubscriber implements EventSubscriberInterface
 
     private function getMetaField(): MetaTableTypeInterface
     {
-        return (new TimesheetMeta())
-            ->setName('demo_bundle')
-            ->setLabel('Demo')
-            ->setOptions(['label' => 'Demo form title', 'help' => 'A help text for the demo bundles meta field'])
-            ->setType(TextType::class)
-            ->addConstraint(new Length(['max' => 200]))
-            ->setIsVisible(true);
+        $definition = new TimesheetMeta();
+        $definition->setName('demo_bundle');
+        $definition->setLabel('Demo');
+        $definition->setOptions(['label' => 'Demo form title', 'help' => 'A help text for the demo bundles meta field']);
+        $definition->setType(TextType::class);
+        $definition->addConstraint(new Length(['max' => 200]));
+        $definition->setIsVisible(true);
+
+        return $definition;
     }
 
     public function loadTimesheetMeta(TimesheetMetaDefinitionEvent $event): void
