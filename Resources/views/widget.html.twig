@@ -29,8 +29,8 @@
                         </a>
                     </div>
                     <div class="col text-truncate">
-                        <a href="{{ path('user_profile', {'username': user.username}) }}" class="text-body d-block">{{ username }}</a>
-                        <div class="text-muted text-truncate mt-n1">Last login: {{ user.lastLogin|date_short }}</div>
+                        <a href="{{ path('user_profile', {'username': user.username}) }}" class="text-body d-block">{{ widgets.username(user) }}</a>
+                        <div class="text-muted text-truncate mt-n1">Last login: {{ user.lastLogin is null ? 'never' : user.lastLogin|date_short }}</div>
                     </div>
                 </div>
             </div>
