@@ -51,10 +51,9 @@
             "@phpstan"
         ]
     },
-    "minimum-stability": "dev",
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
-        "kimai/kimai": "^2.0",
+        "kimai/kimai": "2.0.x-dev",
         "phpstan/phpstan": "^1.0",
         "phpstan/phpstan-doctrine": "^1.0",
         "phpstan/phpstan-symfony": "^1.0",
