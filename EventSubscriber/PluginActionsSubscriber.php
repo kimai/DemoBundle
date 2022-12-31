@@ -18,13 +18,8 @@ use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
 final class PluginActionsSubscriber implements EventSubscriberInterface
 {
-    private $router;
-    private $security;
-
-    public function __construct(UrlGeneratorInterface $router, AuthorizationCheckerInterface $security)
+    public function __construct(private UrlGeneratorInterface $router, private AuthorizationCheckerInterface $security)
     {
-        $this->router = $router;
-        $this->security = $security;
     }
 
     public static function getSubscribedEvents(): array

@@ -1,12 +1,192 @@
 {% extends 'base.html.twig' %}
 {% import "macros/widgets.html.twig" as widgets %}
 
-{% block page_title %}{{ 'Demo'|trans }}{% endblock %}
-
 {% block main %}
 
     {{ widgets.callout('warning', 'demo.visited_page'|trans({'%counter%': entity.counter})) }}
 
     {{ widgets.callout('success', 'Your configuration key "some_setting" has the value: ' ~ configuration.someSetting) }}
 
+    {% embed '@theme/embeds/card.html.twig' with {collapsed: false} %}
+        {% block box_title %}Locale data format{% endblock %}
+        {% block box_body_class %}p-0{% endblock %}
+        {% block box_body %}
+            <p class="p-2">
+                <label for="doctor_locale_switch">You can change the language to any of the supported ones and see the data rendered in this locale:</label>
+                {% set demoLocale = app.request.locale == 'en' ? 'de' : 'en' %}
+                <select id="doctor_locale_switch" onchange="document.location = '{{ path('demo', {'_locale': demoLocale}) }}'.replace('{{ demoLocale }}', this.value)">
+                    {% for locale in locales %}
+                        <option value="{{ locale }}"{% if locale == app.request.locale %} selected{% endif %}>{{ locale|locale_name(locale) }} [{{ locale }}]</option>
+                    {% endfor %}
+                </select>
+            </p>
+            <table class="table table-hover">
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ now|date }}{% endverbatim %}</th>
+                    <td class="text-break">{{ now|date }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ now|date_time }}{% endverbatim %}</th>
+                    <td class="text-break">{{ now|date_time }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ now|format_datetime }}{% endverbatim %}</th>
+                    <td class="text-break">{{ now|format_datetime }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ now|date_short }}{% endverbatim %}</th>
+                    <td class="text-break">{{ now|date_short }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ now|format_date }}{% endverbatim %}</th>
+                    <td class="text-break">{{ now|format_date }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ now|date_weekday }}{% endverbatim %}</th>
+                    <td class="text-break">{{ now|date_weekday }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ now|day_name }}{% endverbatim %}</th>
+                    <td class="text-break">{{ now|day_name }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ now|time }}{% endverbatim %}</th>
+                    <td class="text-break">{{ now|time }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ now|format_time }}{% endverbatim %}</th>
+                    <td class="text-break">{{ now|format_time }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ now|month_name }}{% endverbatim %}</th>
+                    <td class="text-break">{{ now|month_name }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ timesheet|duration }}{% endverbatim %}</th>
+                    <td class="text-break">{{ timesheet|duration }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ timesheet|duration(false) }}{% endverbatim %}</th>
+                    <td class="text-break">{{ timesheet|duration(false) }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ timesheet|duration(true) }}{% endverbatim %}</th>
+                    <td class="text-break">{{ timesheet|duration(true) }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ {% endverbatim %}{{ timesheet.duration }}{% verbatim %}|duration }}{% endverbatim %}</th>
+                    <td class="text-break">{{ timesheet.duration|duration }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ {% endverbatim %}{{ timesheet.rate }}{% verbatim %}|amount }}{% endverbatim %}</th>
+                    <td class="text-break">{{ timesheet.rate|amount }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ {% endverbatim %}{{ timesheet.rate }}{% verbatim %}|format_number }}{% endverbatim %}</th>
+                    <td class="text-break">{{ timesheet.rate|format_number }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ timesheet.rate|money }}{% endverbatim %}</th>
+                    <td class="text-break">{{ timesheet.rate|money }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ timesheet.rate|money('EUR', true) }}{% endverbatim %}</th>
+                    <td class="text-break">{{ timesheet.rate|money('EUR', true) }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ timesheet.rate|format_currency('EUR') }}{% endverbatim %}</th>
+                    <td class="text-break">{{ timesheet.rate|format_currency('EUR') }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ timesheet.rate|money('EUR', false) }}{% endverbatim %}</th>
+                    <td class="text-break">{{ timesheet.rate|money('EUR', false) }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ 'EUR'|currency_name }}{% endverbatim %}</th>
+                    <td class="text-break">{{ 'EUR'|currency_name }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ 'EUR'|currency_symbol }}{% endverbatim %}</th>
+                    <td class="text-break">{{ 'EUR'|currency_symbol }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ 'AT'|country_name('de_AT') }}{% endverbatim %}</th>
+                    <td class="text-break">{{ 'AT'|country_name('de_AT') }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ 'AT'|country_name }}{% endverbatim %}</th>
+                    <td class="text-break">{{ 'AT'|country_name }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ 'de_AT'|language_name }}{% endverbatim %}</th>
+                    <td class="text-break">{{ 'de_AT'|language_name }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ 'de_AT'|language_name('de_AT') }}{% endverbatim %}</th>
+                    <td class="text-break">{{ 'de_AT'|language_name('de_AT') }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ 'de_AT'|locale_name }}{% endverbatim %}</th>
+                    <td class="text-break">{{ 'de_AT'|locale_name }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ 'de_AT'|locale_name('de_AT') }}{% endverbatim %}</th>
+                    <td class="text-break">{{ 'de_AT'|locale_name('de_AT') }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ locale_format('date') }}{% endverbatim %}</th>
+                    <td class="text-break">{{ locale_format('date') }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ locale_format('time') }}{% endverbatim %}</th>
+                    <td class="text-break">{{ locale_format('time') }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ locale_format('date-time') }}{% endverbatim %}</th>
+                    <td class="text-break">{{ locale_format('date-time') }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ month_names() }}{% endverbatim %}</th>
+                    <td class="text-break">{{ month_names()|join(', ') }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ tabler_bundle.rightToLeft }}{% endverbatim %}</th>
+                    <td class="text-break">{{ tabler_bundle.rightToLeft ? 'true' : 'false' }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ iso_day_by_name(app.user.firstDayOfWeek) }}{% endverbatim %}</th>
+                    <td class="text-break">{{ iso_day_by_name(app.user.firstDayOfWeek) }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap w-min">{% verbatim %}{{ javascript_configurations(app.user) }}{% endverbatim %}</th>
+                    <td class="text-break">
+                        {% for name, value in javascript_configurations(app.user) %}
+                            <strong>{{ name }}</strong>
+                            <code>
+                                {% if value is same as (true) %}
+                                    true
+                                {% elseif value is same as (false) %}
+                                    false
+                                {% else %}
+                                    {{ value }}
+                                {% endif %}
+                            </code>
+                            <br>
+                        {% endfor %}
+                    </td>
+                </tr>
+
+            </table>
+        {% endblock %}
+    {% endembed %}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        document.addEventListener('kimai.initialized', function() {
+            KimaiReloadPageWidget.create('kimai.systemConfigUpdate', true);
+        });
+    </script>
 {% endblock %}

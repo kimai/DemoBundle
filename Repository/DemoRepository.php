@@ -17,7 +17,7 @@ final class DemoRepository
     /**
      * @var string
      */
-    private $storage;
+    private string $storage;
 
     public function __construct(string $dataDirectory)
     {

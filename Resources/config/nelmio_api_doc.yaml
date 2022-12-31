@@ -3,4 +3,3 @@ nelmio_api_doc:
         names:
             - { alias: DemoForm,        type: KimaiPlugin\DemoBundle\Form\DemoType,        groups: [Default, Entity, Demo] }
             - { alias: DemoEntity,      type: KimaiPlugin\DemoBundle\Entity\DemoEntity,    groups: [Default, Entity, Demo] }
-            - { alias: DemoCollection,  type: KimaiPlugin\DemoBundle\Entity\DemoEntity,    groups: [Default, Collection, Demo] }

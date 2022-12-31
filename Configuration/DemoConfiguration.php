@@ -14,20 +14,29 @@ use App\Configuration\SystemConfiguration;
 
 final class DemoConfiguration
 {
-    private $configuration;
-
-    public function __construct(SystemConfiguration $configuration)
+    public function __construct(private SystemConfiguration $configuration)
     {
-        $this->configuration = $configuration;
     }
 
     public function getSomeSetting(): string
     {
-        $config = $this->configuration->find('demo.some_setting');
-        if (!\is_string($config)) {
-            return 'NOT SET';
+        $e = $this->configuration->find('demo.some_setting');
+
+        if (\is_string($e)) {
+            return $e;
         }
 
-        return $config;
+        return '**empty**';
+    }
+
+    public function isColorChangeActivated(): bool
+    {
+        $e = $this->configuration->find('demo.activate_dots');
+
+        if (\is_string($e) || \is_int($e)) {
+            return (bool) $e;
+        }
+
+        return false;
     }
 }

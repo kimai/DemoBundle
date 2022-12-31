@@ -6,9 +6,13 @@
         <source>demo_config</source>
         <target>Demo Konfigurationen</target>
       </trans-unit>
-      <trans-unit id="iEHZMqn" resname="label.demo.some_setting">
-        <source>label.demo.some_setting</source>
+      <trans-unit id="IPzcipg" resname="demo.some_setting">
+        <source>demo.some_setting</source>
         <target>Test Einstellung</target>
+      </trans-unit>
+      <trans-unit id="pQJzl_h" resname="demo.activate_dots">
+        <source>demo.activate_dots</source>
+        <target>Farbwechsel in Farbpunkten aktivieren</target>
       </trans-unit>
     </body>
   </file>

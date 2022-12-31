@@ -10,62 +10,60 @@
 
 namespace KimaiPlugin\DemoBundle\Widget;
 
-use App\Entity\User;
 use App\Repository\Query\UserQuery;
 use App\Repository\UserRepository;
-use App\Widget\Type\SimpleWidget;
-use App\Widget\Type\UserWidget;
+use App\Widget\Type\AbstractWidget;
+use App\Widget\WidgetInterface;
 
-class DemoWidget extends SimpleWidget implements UserWidget
+class DemoWidget extends AbstractWidget
 {
+    public function __construct(private UserRepository $repository)
+    {
+    }
+
+    public function getWidth(): int
+    {
+        return WidgetInterface::WIDTH_FULL;
+    }
+
+    public function getHeight(): int
+    {
+        return WidgetInterface::HEIGHT_MAXIMUM;
+    }
+
     /**
-     * @var UserRepository
+     * @param array<string, string|int> $options
+     * @return array<string, string|int>
      */
-    private $repository;
-
-    public function __construct(UserRepository $repository)
-    {
-        $this->repository = $repository;
-
-        $this->setId('DemoWidget');
-        $this->setTitle('Demo widget');
-        $this->setOptions([
-            'user' => null,
-            'id' => '',
-        ]);
-    }
-
-    public function setUser(User $user): void
-    {
-        $this->setOption('user', $user);
-    }
-
     public function getOptions(array $options = []): array
     {
-        $options = parent::getOptions($options);
-
-        if (empty($options['id'])) {
-            $options['id'] = 'DemoWidget';
-        }
-
-        return $options;
+        return array_merge(['id' => 'DemoWidget'], parent::getOptions($options));
     }
 
+    /**
+     * @param array<string, string|int> $options
+     * @return array<string, mixed>
+     */
     public function getData(array $options = [])
     {
-        $options = $this->getOptions($options);
-
-        /** @var User $user */
-        $user = $options['user'];
-
         $query = new UserQuery();
+        $query->setSystemAccount(false);
         $amount = $this->repository->countUsersForQuery($query);
-        $query->setPageSize(8);
 
         return [
             'amount' => $amount,
-            'users' => $this->repository->getPagerfantaForQuery($query)
+            'users' => $this->repository->getUsersForQuery($query)
         ];
+    }
+
+    public function getId(): string
+    {
+        return 'DemoWidget';
+    }
+
+    public function getTitle(): string
+    {
+        return 'Demo widget';
     }
 
     public function getTemplateName(): string

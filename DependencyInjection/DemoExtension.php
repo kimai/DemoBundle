@@ -20,7 +20,7 @@ use Symfony\Component\Yaml\Parser;
 class DemoExtension extends AbstractPluginExtension implements PrependExtensionInterface
 {
     /**
-     * @param array $configs
+     * @param array<string, mixed> $configs
      * @param ContainerBuilder $container
      * @throws \Exception
      */
@@ -38,14 +38,6 @@ class DemoExtension extends AbstractPluginExtension implements PrependExtensionI
     public function prepend(ContainerBuilder $container): void
     {
         $yamlParser = new Parser();
-
-        // load the entity serialization config (mainly for the API)
-        $serializerConfig = file_get_contents(__DIR__ . '/../Resources/config/jms_serializer.yaml');
-        if ($serializerConfig === false) {
-            throw new \Exception('Could not read serializer configuration');
-        }
-        $config = $yamlParser->parse($serializerConfig);
-        $container->prependExtensionConfig('jms_serializer', $config['jms_serializer']);
 
         // load the entity documentation for the API
         $apiConfig = file_get_contents(__DIR__ . '/../Resources/config/nelmio_api_doc.yaml');
@@ -65,6 +57,18 @@ class DemoExtension extends AbstractPluginExtension implements PrependExtensionI
                 'roles' => [
                     'ROLE_SUPER_ADMIN' => [
                         'demo',
+                    ],
+                ],
+            ],
+        ]);
+
+        $container->prependExtensionConfig('jms_serializer', [
+            'metadata' => [
+                'warmup' => [
+                    'paths' => [
+                        'included' => [
+                            __DIR__ . '/../Entity/'
+                        ],
                     ],
                 ],
             ],

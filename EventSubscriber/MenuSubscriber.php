@@ -15,13 +15,10 @@ use App\Utils\MenuItemModel;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
-class MenuSubscriber implements EventSubscriberInterface
+final class MenuSubscriber implements EventSubscriberInterface
 {
-    private $security;
-
-    public function __construct(AuthorizationCheckerInterface $security)
+    public function __construct(private AuthorizationCheckerInterface $security)
     {
-        $this->security = $security;
     }
 
     public static function getSubscribedEvents(): array
@@ -39,10 +36,8 @@ class MenuSubscriber implements EventSubscriberInterface
             return;
         }
 
-        $menu = $event->getAdminMenu();
-
         if ($auth->isGranted('demo')) {
-            $menu->addChild(
+            $event->getAppsMenu()->addChild(
                 new MenuItemModel('demo', 'Demo', 'demo', [], 'fas fa-snowman')
             );
         }

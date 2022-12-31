@@ -1,5 +1,13 @@
 # Changelog
 
+## Version 2.0
+
+Compatibility: requires minimum Kimai 2.0
+
+- Fixed: compatibility with Kimai 2.0
+- Fix deprecations
+- Do not rely on theme related classes
+
 ## 0.10
 
 - Added invoice number generator

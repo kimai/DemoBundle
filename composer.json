@@ -3,7 +3,7 @@
     "description": "Showcase plugin for Kimai, with demos for many extension points within the core",
     "homepage": "https://www.kimai.org/store/demo-bundle.html",
     "type": "kimai-plugin",
-    "version": "0.10",
+    "version": "2.0",
     "keywords": [
         "kimai",
         "kimai-plugin"
@@ -12,13 +12,12 @@
     "authors": [
         {
             "name": "Kevin Papst",
-            "email": "info@keleo.de",
             "homepage": "https://www.keleo.de"
         }
     ],
     "extra": {
         "kimai": {
-            "require": "1.11",
+            "require": 20000,
             "name": "Developer demo"
         }
     },
@@ -30,10 +29,11 @@
     "config": {
         "allow-plugins": {
             "composer/package-versions-deprecated": false,
-            "symfony/flex": false
+            "symfony/flex": false,
+            "symfony/runtime": false
         },
         "platform": {
-            "php": "7.3"
+            "php": "8.1.3"
         },
         "preferred-install": {
             "*": "dist"
@@ -44,19 +44,20 @@
         "codestyle": "vendor/bin/php-cs-fixer fix --dry-run --verbose --show-progress=none",
         "codestyle-fix": "vendor/bin/php-cs-fixer fix",
         "codestyle-check": "vendor/bin/php-cs-fixer fix --dry-run --verbose --using-cache=no --show-progress=none --format=checkstyle",
-        "phpstan": "vendor/bin/phpstan analyse . --configuration=phpstan.neon --level=7",
+        "phpstan": "vendor/bin/phpstan analyse . --configuration=phpstan.neon --level=8",
         "linting": [
-            "composer validate",
+            "composer validate --strict --no-check-version",
             "@codestyle-check",
             "@phpstan"
         ]
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
-        "kevinpapst/kimai2": "^1.11",
+        "kimai/kimai": "2.0.x-dev",
         "phpstan/phpstan": "^1.0",
+        "phpstan/phpstan-doctrine": "^1.0",
         "phpstan/phpstan-symfony": "^1.0",
-        "symfony/console": "^4.0",
-        "symfony/event-dispatcher": "^4.0"
+        "symfony/console": "^6.0",
+        "symfony/event-dispatcher": "^6.0"
     }
 }

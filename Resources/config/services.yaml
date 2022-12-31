@@ -8,8 +8,14 @@ services:
 
     KimaiPlugin\DemoBundle\:
         resource: '../../*'
-        exclude: '../../{Resources,Migrations}'
+        exclude:
+            - '../../Migrations/'
+            - '../../Resources/'
 
     KimaiPlugin\DemoBundle\Controller\:
         resource: '../../Controller'
         tags: ['controller.service_arguments']
+
+    KimaiPlugin\DemoBundle\EventSubscriber\ActionsSubscriber:
+        arguments:
+            $environment: '%kernel.environment%'
