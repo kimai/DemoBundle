@@ -1,5 +1,5 @@
 
-# A Kimai 2 demo bundle
+# A Kimai demo bundle
 
 [![CI Status](https://github.com/Keleo/DemoBundle/workflows/CI/badge.svg)](https://github.com/Keleo/DemoBundle/actions)
 
@@ -34,21 +34,37 @@ But that should not be required, as they can change the configuration through th
 
 ## Installation
 
-First clone it to your Kimai installation `plugins` directory:
-```
-cd /kimai/var/plugins/
-git clone https://github.com/Keleo/DemoBundle.git
+This plugin is compatible with the following Kimai releases:
+
+| Bundle version | Minimum Kimai version |
+|----------------|-----------------------|
+| 2.0            | 2.0.0                 |
+| 0.9 - 0.10     | 1.11                  |
+| 0.9            | 1.11                  |
+| 0.8            | 1.10                  |
+| 0.5 - 0.7      | 1.7                   |
+| 0.1 - 0.4      | 1.6                   |
+
+You find the most notable changes between the versions in the file [CHANGELOG.md](CHANGELOG.md).
+
+Download and extract the [compatible release](https://github.com/Keleo/DemoBundle/releases).
+
+The file structure needs to look like this afterwards:
+
+```bash
+var/plugins/
+├── DemoBundle
+│   ├── DemoBundle.php
+|   └ ... more files and directories follow here ... 
 ```
 
-Rebuild the cache: 
-```
-cd /kimai/
+Then rebuild the cache:
+```bash
 bin/console kimai:reload -n
 ```
 
 And install the database: 
-```
-cd /kimai/
+```bash
 bin/console kimai:bundle:demo:install
 ```
 

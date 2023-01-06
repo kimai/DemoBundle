@@ -61,6 +61,7 @@ Compatibility: requires minimum Kimai 2.0
  
 ## 0.1 
 
+Compatible with Kimai 1.6
+
 - Initial version
   
-Compatible with Kimai 1.6
