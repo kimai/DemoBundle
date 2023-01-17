@@ -17,12 +17,12 @@ use App\Utils\PageSetup;
 use KimaiPlugin\DemoBundle\Configuration\DemoConfiguration;
 use KimaiPlugin\DemoBundle\Form\DemoType;
 use KimaiPlugin\DemoBundle\Repository\DemoRepository;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route(path: '/admin/demo')]
-#[Security("is_granted('demo')")]
+#[IsGranted('demo')]
 final class DemoController extends AbstractController
 {
     public function __construct(private DemoRepository $repository, private DemoConfiguration $configuration)
