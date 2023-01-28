@@ -38,7 +38,7 @@ This plugin is compatible with the following Kimai releases:
 
 | Bundle version | Minimum Kimai version |
 |----------------|-----------------------|
-| 2.0            | 2.0.0                 |
+| 2.0            | 2.0                 |
 | 0.9 - 0.10     | 1.11                  |
 | 0.9            | 1.11                  |
 | 0.8            | 1.10                  |
