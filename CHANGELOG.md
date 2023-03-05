@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 2.0.1
+
+Compatibility: requires minimum Kimai 2.0
+
+- Cleanup PDF invoice template
+
 ## Version 2.0
 
 Compatibility: requires minimum Kimai 2.0
