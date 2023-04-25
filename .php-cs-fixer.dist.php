@@ -1,7 +1,7 @@
 <?php
 
 $fileHeaderComment = <<<COMMENT
-This file is part of the DemoBundle for Kimai 2.
+This file is part of the "DemoBundle" for Kimai.
 All rights reserved by Kevin Papst (www.kevinpapst.de).
 
 For the full copyright and license information, please view the LICENSE
@@ -15,7 +15,11 @@ $fixer
         'encoding' => true,
         'full_opening_tag' => true,
         'blank_line_after_namespace' => true,
-        'braces' => true,
+        'control_structure_braces' => true,
+        'control_structure_continuation_position' => ['position' => 'same_line'],
+        'declare_parentheses' => true,
+        'no_multiple_statements_per_line' => true,
+        'statement_indentation' => true,
         'class_definition' => true,
         'elseif' => true,
         'function_declaration' => true,
