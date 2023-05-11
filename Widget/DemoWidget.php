@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the DemoBundle for Kimai 2.
+ * This file is part of the "DemoBundle" for Kimai.
  * All rights reserved by Kevin Papst (www.kevinpapst.de).
  *
  * For the full copyright and license information, please view the LICENSE
@@ -33,7 +33,7 @@ class DemoWidget extends AbstractWidget
 
     /**
      * @param array<string, string|int> $options
-     * @return array<string, string|int>
+     * @return array<string, mixed>
      */
     public function getOptions(array $options = []): array
     {
