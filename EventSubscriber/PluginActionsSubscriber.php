@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the DemoBundle for Kimai 2.
+ * This file is part of the "DemoBundle" for Kimai.
  * All rights reserved by Kevin Papst (www.kevinpapst.de).
  *
  * For the full copyright and license information, please view the LICENSE
@@ -10,26 +10,18 @@
 
 namespace KimaiPlugin\DemoBundle\EventSubscriber;
 
-use App\Event\ThemeEvent;
+use App\Event\PageActionsEvent;
+use App\EventSubscriber\Actions\AbstractActionsSubscriber;
 use App\Plugin\Plugin;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
-final class PluginActionsSubscriber implements EventSubscriberInterface
+final class PluginActionsSubscriber extends AbstractActionsSubscriber
 {
-    public function __construct(private UrlGeneratorInterface $router, private AuthorizationCheckerInterface $security)
+    public static function getActionName(): string
     {
+        return 'plugin';
     }
 
-    public static function getSubscribedEvents(): array
-    {
-        return [
-            'actions.plugin' => ['onPluginEvent'],
-        ];
-    }
-
-    public function onPluginEvent(ThemeEvent $event): void
+    public function onActions(PageActionsEvent $event): void
     {
         $payload = $event->getPayload();
 
@@ -44,21 +36,18 @@ final class PluginActionsSubscriber implements EventSubscriberInterface
             return;
         }
 
-        if (!$this->security->isGranted('demo')) {
+        if (!$this->isGranted('demo')) {
             return;
         }
 
-        $payload['actions']['divider'] = null;
-
-        $payload['actions']['settings'] = [
-            'url' => $this->router->generate('system_configuration_section', ['section' => 'demo_config']),
+        $event->addDivider();
+        $event->addAction('settings', [
+            'url' => $this->path('system_configuration_section', ['section' => 'demo_config']),
             'class' => 'modal-ajax-form',
-        ];
+        ]);
 
-        $payload['actions']['details'] = [
-            'url' => $this->router->generate('demo', []),
-        ];
-
-        $event->setPayload($payload);
+        $event->addAction('details', [
+            'url' => $this->path('demo', []),
+        ]);
     }
 }
