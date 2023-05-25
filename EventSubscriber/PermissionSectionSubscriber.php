@@ -25,6 +25,6 @@ class PermissionSectionSubscriber implements EventSubscriberInterface
 
     public function onEvent(PermissionSectionsEvent $event): void
     {
-        $event->addSection(new PermissionSection('Demo (plugin) - sweet, right?', 'demo'));
+        $event->addSection(new PermissionSection('Demo - sweet, right?', 'demo'));
     }
 }
