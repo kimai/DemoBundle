@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /*
  * This file is part of the "DemoBundle" for Kimai.
  * All rights reserved by Kevin Papst (www.kevinpapst.de).
