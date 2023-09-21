@@ -32,8 +32,8 @@ class DemoWidget extends AbstractWidget
     }
 
     /**
-     * @param array<string, string|int> $options
-     * @return array<string, mixed>
+     * @param array<string, string|bool|int|null> $options
+     * @return array<string, string|bool|int|null>
      */
     public function getOptions(array $options = []): array
     {
@@ -41,10 +41,9 @@ class DemoWidget extends AbstractWidget
     }
 
     /**
-     * @param array<string, string|int> $options
-     * @return array<string, mixed>
+     * @param array<string, string|bool|int|null> $options
      */
-    public function getData(array $options = [])
+    public function getData(array $options = []): mixed
     {
         $query = new UserQuery();
         $query->setSystemAccount(false);
