@@ -1,6 +1,6 @@
 controllers:
     resource: '../../Controller/'
-    type: annotation
+    type: attribute
     prefix: /{_locale}
     requirements:
         _locale: '%app_locales%'
@@ -9,5 +9,5 @@ controllers:
 
 demo.api:
     resource: "@DemoBundle/API/"
-    type: annotation
+    type: attribute
     prefix: /api

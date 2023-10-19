@@ -3,7 +3,7 @@
 
 [![CI Status](https://github.com/Keleo/DemoBundle/workflows/CI/badge.svg)](https://github.com/Keleo/DemoBundle/actions)
 
-A Kimai 2 plugin, which showcases some developer options within Kimai 2.
+A plugin to showcase some developer options within Kimai.
 
 ## What's included?
 
@@ -38,6 +38,7 @@ This plugin is compatible with the following Kimai releases:
 
 | Bundle version | Minimum Kimai version |
 |----------------|-----------------------|
+| 2.1.0          | 2.1.0                 |
 | 2.0            | 2.0.0                 |
 | 0.9 - 0.10     | 1.11                  |
 | 0.9            | 1.11                  |

@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 2.1.0
+
+Compatibility: requires minimum Kimai 2.1.0
+
+- Fixed: route mapping type changed to attribute
+
 ## Version 2.0.1
 
 Compatibility: requires minimum Kimai 2.0
