@@ -52,7 +52,7 @@ Download and extract the [compatible release](https://github.com/Keleo/DemoBundl
 
 The file structure needs to look like this afterwards:
 
-```bash
+```
 var/plugins/
 ├── DemoBundle
 │   ├── DemoBundle.php
