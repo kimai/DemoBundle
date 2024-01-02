@@ -18,7 +18,7 @@ use KimaiPlugin\DemoBundle\Configuration\DemoConfiguration;
 use KimaiPlugin\DemoBundle\Form\DemoType;
 use KimaiPlugin\DemoBundle\Repository\DemoRepository;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route(path: '/admin/demo')]
