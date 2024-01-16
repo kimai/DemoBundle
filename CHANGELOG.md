@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 2.2.0
+
+Compatibility: requires minimum Kimai 2.10.0
+
+- Adapted translation for invoice number generator
+
 ## Version 2.1.0
 
 Compatibility: requires minimum Kimai 2.1.0
