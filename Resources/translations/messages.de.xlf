@@ -14,10 +14,10 @@
         <source>demo_config</source>
         <target>Demo Konfigurationen</target>
       </trans-unit>
-        <trans-unit id="pEGxX_m" resname="invoice_number_generator.random">
-            <source>invoice_number_generator.random</source>
-            <target>Zufallszahl (DemoBundle)</target>
-        </trans-unit>
+      <trans-unit id="319xDMZ" resname="invoice_number_generator.random">
+        <source>invoice_number_generator.random</source>
+        <target>Zufallszahl (DemoBundle)</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
