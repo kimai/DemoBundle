@@ -10,10 +10,10 @@
         <source>demo.visited_page</source>
         <target>You have visited this page %counter% times</target>
       </trans-unit>
-        <trans-unit id="692lBYc" resname="demo_config">
-            <source>demo_config</source>
-            <target>Demo configuration</target>
-        </trans-unit>
+      <trans-unit id="692lBYc" resname="demo_config">
+        <source>demo_config</source>
+        <target>Demo configuration</target>
+      </trans-unit>
       <trans-unit id="319xDMZ" resname="invoice_number_generator.random">
         <source>invoice_number_generator.random</source>
         <target>Random number (DemoBundle)</target>
