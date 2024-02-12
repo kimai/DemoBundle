@@ -34,5 +34,8 @@ class NotificationsSubscriber implements EventSubscriberInterface
         $model = new NotificationModel('demo-test', 'Test Demo notification', ThemeConstants::TYPE_INFO);
         $model->setUrl($this->urlGenerator->generate('demo'));
         $event->addNotification($model);
+        $event->setShowBadge(false);
+        $event->setButtonClass('btn btn-icon');
+        $event->setIconClass('text-danger icon');
     }
 }
