@@ -27,7 +27,7 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 #[IsGranted('ROLE_USER')]
 final class DemoController extends AbstractController
 {
-    public function __construct(private ViewHandlerInterface $viewHandler)
+    public function __construct(private readonly ViewHandlerInterface $viewHandler)
     {
     }
 
@@ -61,7 +61,7 @@ final class DemoController extends AbstractController
     public function getAction(int $id): Response
     {
         if (0 === $id) {
-            throw new NotFoundException();
+            throw $this->createNotFoundException('Unsupported demo ID');
         }
 
         $demo = new DemoEntity();
