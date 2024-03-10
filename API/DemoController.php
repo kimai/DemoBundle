@@ -10,7 +10,6 @@
 
 namespace KimaiPlugin\DemoBundle\API;
 
-use App\API\NotFoundException;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Request\ParamFetcherInterface;
 use FOS\RestBundle\View\View;
