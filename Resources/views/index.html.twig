@@ -168,7 +168,7 @@
                                 {% elseif value is same as (false) %}
                                     false
                                 {% else %}
-                                    {{ value }}
+                                    {{ value is iterable ? value|join(', ') : value }}
                                 {% endif %}
                             </code>
                             <br>
