@@ -3,7 +3,7 @@
     "description": "Showcase plugin for Kimai, with demos for many extension points within the core",
     "homepage": "https://github.com/Keleo/DemoBundle",
     "type": "kimai-plugin",
-    "version": "2.2.0",
+    "version": "2.3.0",
     "keywords": [
         "kimai",
         "kimai-plugin"
@@ -17,7 +17,7 @@
     ],
     "extra": {
         "kimai": {
-            "require": 20100,
+            "require": 21500,
             "name": "Developer demo"
         }
     },

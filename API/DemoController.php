@@ -23,7 +23,7 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route(path: '/demos')]
 #[OA\Tag(name: 'Demo')]
-#[IsGranted('ROLE_USER')]
+#[IsGranted('API')]
 final class DemoController extends AbstractController
 {
     public function __construct(private readonly ViewHandlerInterface $viewHandler)
