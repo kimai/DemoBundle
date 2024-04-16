@@ -1,5 +1,5 @@
 
-# A Kimai demo bundle
+# Kimai - Developer Demo Bundle
 
 [![CI Status](https://github.com/Keleo/DemoBundle/workflows/CI/badge.svg)](https://github.com/Keleo/DemoBundle/actions)
 
@@ -38,7 +38,7 @@ This plugin is compatible with the following Kimai releases:
 
 | Bundle version | Minimum Kimai version |
 |----------------|-----------------------|
-| 2.1.0          | 2.1.0                 |
+| 2.1.0 - 2.2.0  | 2.1.0                 |
 | 2.0            | 2.0.0                 |
 | 0.9 - 0.10     | 1.11                  |
 | 0.9            | 1.11                  |
@@ -50,9 +50,9 @@ You find the most notable changes between the versions in the file [CHANGELOG.md
 
 Download and extract the [compatible release](https://github.com/Keleo/DemoBundle/releases) in `var/plugins/` (see [plugin docs](https://www.kimai.org/documentation/plugin-management.html)).
 
-The file structure needs to look like this afterwards:
+The file structure needs to look like this afterward:
 
-```bash
+```
 var/plugins/
 ├── DemoBundle
 │   ├── DemoBundle.php
