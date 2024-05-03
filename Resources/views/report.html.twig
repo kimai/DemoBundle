@@ -1,0 +1,19 @@
+{% extends 'reporting/layout.html.twig' %}
+
+{% block report_form_layout %}
+    {{ form_widget(form.month, {'label': false}) }}
+{% endblock %}
+
+{% block report %}
+    {% embed '@theme/embeds/card.html.twig' %}
+        {% block box_body_class %}{{ box_id }} table-responsive m-0{% endblock %}
+        {% block box_body %}
+            {% if not hasData %}
+                {% from "macros/widgets.html.twig" import nothing_found %}
+                {{ nothing_found() }}
+            {% else %}
+                <p>Put your report data here</p>
+            {% endif %}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}

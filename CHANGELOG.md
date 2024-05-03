@@ -1,8 +1,14 @@
+## Version 2.4.0
+
+Compatibility: requires minimum Kimai 2.15.0
+
+- Added demo report
+
 ## Version 2.3.0
 
 Compatibility: requires minimum Kimai 2.15.0
 
-- unify API access permission check
+- Unify API access permission check
 
 ## Version 2.2.0
 
