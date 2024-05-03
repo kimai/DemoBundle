@@ -12,16 +12,16 @@ namespace KimaiPlugin\DemoBundle\Report;
 
 final class DemoReportQuery
 {
-    public function __construct(private \DateTimeInterface $month)
+    public function __construct(private ?\DateTimeInterface $month)
     {
     }
 
-    public function getMonth(): \DateTimeInterface
+    public function getMonth(): ?\DateTimeInterface
     {
         return $this->month;
     }
 
-    public function setMonth(?\DateTime $month): void
+    public function setMonth(?\DateTimeInterface $month): void
     {
         $this->month = $month;
     }
