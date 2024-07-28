@@ -41,8 +41,8 @@ final class DemoController extends AbstractController
         $demo = new DemoEntity();
         $demo->setId(1);
 
-        if (null !== ($counter = $paramFetcher->get('counter'))) {
-            $demo->setCounter($counter);
+        if (null !== ($counter = $paramFetcher->get('counter')) && is_numeric($counter)) {
+            $demo->setCounter((int) $counter);
         }
 
         $view = new View([$demo], 200);

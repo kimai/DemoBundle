@@ -11,17 +11,17 @@
 namespace KimaiPlugin\DemoBundle\DependencyInjection;
 
 use App\Plugin\AbstractPluginExtension;
+use KimaiPlugin\DemoBundle\Entity\DemoEntity;
+use KimaiPlugin\DemoBundle\Form\DemoType;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader;
-use Symfony\Component\Yaml\Parser;
 
 class DemoExtension extends AbstractPluginExtension implements PrependExtensionInterface
 {
     /**
      * @param array<string, mixed> $configs
-     * @param ContainerBuilder $container
      * @throws \Exception
      */
     public function load(array $configs, ContainerBuilder $container): void
@@ -37,15 +37,22 @@ class DemoExtension extends AbstractPluginExtension implements PrependExtensionI
 
     public function prepend(ContainerBuilder $container): void
     {
-        $yamlParser = new Parser();
-
-        // load the entity documentation for the API
-        $apiConfig = file_get_contents(__DIR__ . '/../Resources/config/nelmio_api_doc.yaml');
-        if ($apiConfig === false) {
-            throw new \Exception('Could not read API configuration');
-        }
-        $config = $yamlParser->parse($apiConfig);
-        $container->prependExtensionConfig('nelmio_api_doc', $config['nelmio_api_doc']);
+        $container->prependExtensionConfig('nelmio_api_doc', [
+            'models' => [
+                'names' => [
+                    [
+                        'alias' => 'DemoForm',
+                        'type' => DemoType::class,
+                        'groups' => ['Default', 'Entity', 'Demo'],
+                    ],
+                    [
+                        'alias' => 'DemoEntity',
+                        'type' => DemoEntity::class,
+                        'groups' => ['Default', 'Entity', 'Demo'],
+                    ],
+                ],
+            ]
+        ]);
 
         $container->prependExtensionConfig('kimai', [
             'invoice' => [
