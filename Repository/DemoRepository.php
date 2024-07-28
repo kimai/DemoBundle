@@ -14,9 +14,6 @@ use KimaiPlugin\DemoBundle\Entity\DemoEntity;
 
 final class DemoRepository
 {
-    /**
-     * @var string
-     */
     private string $storage;
 
     public function __construct(string $dataDirectory)
@@ -37,8 +34,8 @@ final class DemoRepository
         if ($data !== false) {
             $json = json_decode($data, true);
 
-            if (\array_key_exists('counter', $json)) {
-                $entity->setCounter($json['counter']);
+            if (\is_array($json) && \array_key_exists('counter', $json) && is_numeric($json['counter'])) {
+                $entity->setCounter((int) $json['counter']);
             }
         }
 
@@ -53,6 +50,9 @@ final class DemoRepository
             $data = file_get_contents($this->storage);
             if ($data !== false) {
                 $vars = json_decode($data, true);
+                if (!\is_array($vars)) {
+                    throw new \Exception('Failed reading demo content storage file at data/demo.json');
+                }
             }
         }
 

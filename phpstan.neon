@@ -10,5 +10,3 @@ parameters:
         - vendor/
     treatPhpDocTypesAsCertain: false
     inferPrivatePropertyTypeFromConstructor: true
-    checkMissingIterableValueType: false
-    checkGenericClassInNonGenericObjectType: false

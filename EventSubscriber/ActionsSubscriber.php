@@ -44,7 +44,7 @@ class ActionsSubscriber extends AbstractActionsSubscriber
             ]);
         }
 
-        if (!isset($payload['counter'])) {
+        if (!isset($payload['counter']) || !is_numeric($payload['counter'])) {
             return;
         }
 
