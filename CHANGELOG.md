@@ -3,6 +3,7 @@
 Compatibility: requires minimum Kimai 2.15.0
 
 - Inline Nelmio API Doc config 
+- PHPStan Level 9 and codestyle fixes
 
 ## Version 2.4.0
 

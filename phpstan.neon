@@ -6,6 +6,7 @@ includes:
     - %rootDir%/../phpstan/conf/bleedingEdge.neon
 
 parameters:
+    level: 9
     excludePaths:
         - vendor/
     treatPhpDocTypesAsCertain: false
