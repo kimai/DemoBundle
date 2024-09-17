@@ -8,7 +8,7 @@
 # --------------------------------------------------------------------------------------------------
 
 table_storage:
-    table_name: bundle_migration_demo
-
+    table_name: 'bundle_migration_demo'
 migrations_paths:
-    DemoBundle\Migrations: var/plugins/DemoBundle/Migrations
+    'DemoBundle\Migrations': 'var/plugins/DemoBundle/Migrations'
+custom_template: 'migrations/MigrationTemplate.txt'
