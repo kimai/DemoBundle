@@ -17,7 +17,7 @@ use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
 final class MenuSubscriber implements EventSubscriberInterface
 {
-    public function __construct(private AuthorizationCheckerInterface $security)
+    public function __construct(private readonly AuthorizationCheckerInterface $security)
     {
     }
 
@@ -37,7 +37,7 @@ final class MenuSubscriber implements EventSubscriberInterface
         }
 
         if ($auth->isGranted('demo')) {
-            $event->getAppsMenu()->addChild(
+            $event->getMenu()->addChild(
                 new MenuItemModel('demo', 'Demo', 'demo', [], 'fas fa-snowman')
             );
         }
