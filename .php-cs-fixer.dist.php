@@ -10,6 +10,7 @@ COMMENT;
 
 $fixer = new PhpCsFixer\Config();
 $fixer
+    ->setParallelConfig(PhpCsFixer\Runner\Parallel\ParallelConfigFactory::detect())
     ->setRiskyAllowed(true)
     ->setRules([
         'encoding' => true,
