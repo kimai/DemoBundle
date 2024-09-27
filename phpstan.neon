@@ -8,6 +8,6 @@ includes:
 parameters:
     level: 9
     excludePaths:
-        - vendor/
+        - vendor/(?)
     treatPhpDocTypesAsCertain: false
     inferPrivatePropertyTypeFromConstructor: true
