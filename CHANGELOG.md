@@ -1,8 +1,9 @@
-## Version 2.6.0 (unreleased)
+## Version 2.6.0
 
 Compatibility: requires minimum Kimai 2.15.0
 
-- Use "main" menu instead of "Apps" menu
+- Rename migration config for compatibility with new plugin installer
+- Use "Main" menu instead of "Apps" menu
 
 ## Version 2.5.0
 
