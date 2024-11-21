@@ -101,9 +101,9 @@
                                     {{ entry.activity.name }} / {{ entry.project.name }}
                                 {% endif %}
                             </td>
-                            <td nowrap class="text-nowrap text-right">{{ rate|money(model.calculator.currency) }}</td>
+                            <td nowrap class="text-nowrap text-right">{{ rate|money(invoice['invoice.currency']) }}</td>
                             <td nowrap class="text-nowrap text-right">{{ duration }}</td>
-                            <td nowrap class="text-nowrap text-right">{{ entry.rate|money(model.calculator.currency) }}</td>
+                            <td nowrap class="text-nowrap text-right">{{ entry.rate|money(invoice['invoice.currency']) }}</td>
                         </tr>
                     {% endfor %}
                     </tbody>
@@ -112,20 +112,20 @@
                         <td colspan="4" class="text-right">
                             {{ 'invoice.subtotal'|trans }}
                         </td>
-                        <td class="text-right">{{ model.calculator.subtotal|money(model.calculator.currency) }}</td>
+                        <td class="text-right">{{ model.calculator.subtotal|money(invoice['invoice.currency']) }}</td>
                     </tr>
                     <tr>
                         <td colspan="4" class="text-right">
                             {{ 'invoice.tax'|trans }} ({{ model.calculator.vat }}%)
                         </td>
-                        <td class="text-right">{{ model.calculator.tax|money(model.calculator.currency) }}</td>
+                        <td class="text-right">{{ model.calculator.tax|money(invoice['invoice.currency']) }}</td>
                     </tr>
                     <tr>
                         <td colspan="4" class="text-right text-nowrap">
                             <strong>{{ 'invoice.total'|trans }}</strong>
                         </td>
                         <td class="text-right">
-                            <strong>{{ model.calculator.total|money(model.calculator.currency) }}</strong>
+                            <strong>{{ model.calculator.total|money(invoice['invoice.currency']) }}</strong>
                         </td>
                     </tr>
                     </tfoot>

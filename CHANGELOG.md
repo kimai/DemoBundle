@@ -1,3 +1,9 @@
+## Version 2.7.0
+
+Compatibility: requires minimum Kimai 2.15.0
+
+- Replaced disallowed invoice value access
+
 ## Version 2.6.0
 
 Compatibility: requires minimum Kimai 2.15.0
