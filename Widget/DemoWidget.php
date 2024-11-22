@@ -17,7 +17,7 @@ use App\Widget\WidgetInterface;
 
 class DemoWidget extends AbstractWidget
 {
-    public function __construct(private UserRepository $repository)
+    public function __construct(private readonly UserRepository $repository)
     {
     }
 
@@ -41,7 +41,7 @@ class DemoWidget extends AbstractWidget
     }
 
     /**
-     * @param array<string, string|bool|int|null> $options
+     * @param array<string, string|bool|int|null|array<string, mixed>> $options
      */
     public function getData(array $options = []): mixed
     {

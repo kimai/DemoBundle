@@ -45,7 +45,7 @@ class DemoSortActivityInvoiceCalculator extends AbstractSumInvoiceCalculator imp
     public function getEntries(): array
     {
         $entries = $this->model->getEntries();
-        if (empty($entries)) {
+        if (\count($entries) === 0) {
             return [];
         }
 
@@ -68,7 +68,7 @@ class DemoSortActivityInvoiceCalculator extends AbstractSumInvoiceCalculator imp
             $compare_a = $a->getActivity()?->getName();
             $compare_b = $b->getActivity()?->getName();
 
-            if ($compare_a == $compare_b) {
+            if ($compare_a === $compare_b) {
                 return 0;
             }
 

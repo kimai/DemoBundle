@@ -21,7 +21,7 @@ use Symfony\Component\DependencyInjection\Loader;
 class DemoExtension extends AbstractPluginExtension implements PrependExtensionInterface
 {
     /**
-     * @param array<string, mixed> $configs
+     * @param array<mixed> $configs
      * @throws \Exception
      */
     public function load(array $configs, ContainerBuilder $container): void
