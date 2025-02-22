@@ -1,3 +1,11 @@
+## Version 2.8.0
+
+Compatibility: requires minimum Kimai 2.15.0
+
+- removed unnecessary query
+- PHPStan and code improvements
+- reduced widget size
+
 ## Version 2.7.0
 
 Compatibility: requires minimum Kimai 2.15.0
