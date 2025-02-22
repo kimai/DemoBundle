@@ -5,7 +5,7 @@
         <h3 class="card-title me-1">
             Active Members
         </h3>
-        {{ widgets.label(data.amount ~ ' users', 'primary') }}
+        {{ widgets.label((data.users|length) ~ ' users', 'primary') }}
 
         <div class="card-actions">
             {{ widgets.card_tool_button('fa fa-minus', {'widget': 'collapse'}) }}

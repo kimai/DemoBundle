@@ -47,10 +47,8 @@ class DemoWidget extends AbstractWidget
     {
         $query = new UserQuery();
         $query->setSystemAccount(false);
-        $amount = $this->repository->countUsersForQuery($query);
 
         return [
-            'amount' => $amount,
             'users' => $this->repository->getUsersForQuery($query)
         ];
     }
