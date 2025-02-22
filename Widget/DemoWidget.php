@@ -23,7 +23,7 @@ class DemoWidget extends AbstractWidget
 
     public function getWidth(): int
     {
-        return WidgetInterface::WIDTH_FULL;
+        return WidgetInterface::WIDTH_HALF;
     }
 
     public function getHeight(): int
