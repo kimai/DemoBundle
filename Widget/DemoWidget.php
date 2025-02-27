@@ -13,22 +13,11 @@ namespace KimaiPlugin\DemoBundle\Widget;
 use App\Repository\Query\UserQuery;
 use App\Repository\UserRepository;
 use App\Widget\Type\AbstractWidget;
-use App\Widget\WidgetInterface;
 
 class DemoWidget extends AbstractWidget
 {
     public function __construct(private readonly UserRepository $repository)
     {
-    }
-
-    public function getWidth(): int
-    {
-        return WidgetInterface::WIDTH_HALF;
-    }
-
-    public function getHeight(): int
-    {
-        return WidgetInterface::HEIGHT_MAXIMUM;
     }
 
     /**
