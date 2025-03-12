@@ -21,16 +21,7 @@ class DemoWidget extends AbstractWidget
     }
 
     /**
-     * @param array<string, string|bool|int|null|array<string, mixed>> $options
-     * @return array<string, string|bool|int|null|array<string, mixed>>
-     */
-    public function getOptions(array $options = []): array
-    {
-        return array_merge(['id' => 'DemoWidget'], parent::getOptions($options));
-    }
-
-    /**
-     * @param array<string, string|bool|int|null|array<string, mixed>> $options
+     * @param array<string, string|bool|int|float> $options
      */
     public function getData(array $options = []): mixed
     {

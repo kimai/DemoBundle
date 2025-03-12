@@ -1,3 +1,9 @@
+## Version 3.0.0
+
+Compatibility: requires minimum Kimai 3.0.0
+
+- Widget compatibility for new dashboard
+
 ## Version 2.8.0
 
 Compatibility: requires minimum Kimai 2.15.0

@@ -1,17 +1,6 @@
-{% import "macros/widgets.html.twig" as widgets %}
-
-<div class="card">
-    <div class="card-header">
-        <h3 class="card-title me-1">
-            Active Members
-        </h3>
-        {{ widgets.label((data.users|length) ~ ' users', 'primary') }}
-
-        <div class="card-actions">
-            {{ widgets.card_tool_button('fa fa-minus', {'widget': 'collapse'}) }}
-            {{ widgets.card_tool_button('fa fa-times', {'widget': 'remove'}) }}
-        </div>
-    </div>
+{% embed 'dashboard/widget.html.twig' with {fullsize: true} %}
+    {% import "macros/widgets.html.twig" as widgets %}
+    {% block box_body %}
     <div class="list-group list-group-flush box-body-scrollable">
         {% set lastFirstChar = '999999' %}
         {% for user in data.users|sort((a,b) => a.displayName <=> b.displayName ) %}
@@ -36,7 +25,8 @@
             </div>
         {% endfor %}
     </div>
-    <div class="d-flex">
-        <a href="{{ path('admin_user') }}" class="card-btn">View All Users</a>
-    </div>
-</div>
+    {% endblock %}
+    {% block box_tools %}
+        <a href="{{ path('admin_user') }}" class="ms-auto m-0">{{ widgets.label((data.users|length) ~ ' users', 'primary') }}</a>
+    {% endblock %}
+{% endembed %}
