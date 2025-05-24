@@ -31,7 +31,7 @@ final class DemoController extends AbstractController
     }
 
     /**
-     * Returns a collection of demo entities
+     * Fetch a collection of demo entities
      */
     #[OA\Response(response: 200, description: 'Returns a collection of demo entities', content: new OA\JsonContent(type: 'array', items: new OA\Items(ref: '#/components/schemas/DemoEntity')))]
     #[Rest\QueryParam(name: 'counter', requirements: '\d+', strict: true, nullable: true, description: 'The counter to be included in the answer (default: 1)')]
@@ -52,7 +52,7 @@ final class DemoController extends AbstractController
     }
 
     /**
-     * Returns one demo entity
+     * Fetch demo entity
      */
     #[OA\Response(response: 200, description: 'Returns one demo entity (if you pass id = 0, a NotFoundException will be thrown)', content: new OA\JsonContent(ref: '#/components/schemas/DemoEntity'))]
     #[OA\Parameter(name: 'id', in: 'path', description: 'Demo ID to fetch', required: true)]
