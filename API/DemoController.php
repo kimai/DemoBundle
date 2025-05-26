@@ -31,7 +31,7 @@ final class DemoController extends AbstractController
     }
 
     /**
-     * Fetch a collection of demo entities
+     * Fetch demo entities
      */
     #[OA\Response(response: 200, description: 'Returns a collection of demo entities', content: new OA\JsonContent(type: 'array', items: new OA\Items(ref: '#/components/schemas/DemoEntity')))]
     #[Rest\QueryParam(name: 'counter', requirements: '\d+', strict: true, nullable: true, description: 'The counter to be included in the answer (default: 1)')]
