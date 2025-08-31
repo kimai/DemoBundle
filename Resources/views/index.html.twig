@@ -167,8 +167,17 @@
                                     true
                                 {% elseif value is same as (false) %}
                                     false
+                                {% elseif value is iterable %}
+                                    <ul>
+                                    {% for k, v in value %}
+                                        <li>
+                                            {{ k }}:
+                                            {{ v is iterable ? v|join(', ') : v }}
+                                        </li>
+                                    {% endfor %}
+                                    </ul>
                                 {% else %}
-                                    {{ value is iterable ? value|join(', ') : value }}
+                                    {{ value }}
                                 {% endif %}
                             </code>
                             <br>
