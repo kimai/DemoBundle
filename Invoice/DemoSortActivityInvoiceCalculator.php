@@ -42,10 +42,7 @@ class DemoSortActivityInvoiceCalculator extends AbstractSumInvoiceCalculator imp
         }
     }
 
-    /**
-     * @return InvoiceItem[]
-     */
-    protected function calculateEntries(): array
+    public function getEntries(): array
     {
         $entries = $this->model->getEntries();
         if (\count($entries) === 0) {
