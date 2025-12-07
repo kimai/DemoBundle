@@ -30,7 +30,7 @@
                     </div>
                     <div class="col text-truncate">
                         <a href="{{ path('user_profile', {'username': user.username}) }}" class="text-body d-block">{{ widgets.username(user) }}</a>
-                        <div class="text-body-secondary text-truncate mt-n1">Last login: {{ user.lastLogin is null ? 'never' : user.lastLogin|date_short }}</div>
+                        <div class="text-body-secondary text-truncate">Last login: {{ user.lastLogin is null ? 'never' : user.lastLogin|date_short }}</div>
                     </div>
                 </div>
             </div>
