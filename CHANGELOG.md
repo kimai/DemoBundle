@@ -1,3 +1,9 @@
+## Version 2.10.0
+
+Compatibility: requires minimum Kimai 2.44.0
+
+- Update invoice template to use dynamic tax rates
+
 ## Version 2.9.0
 
 Compatibility: requires minimum Kimai 2.41.0
