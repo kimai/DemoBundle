@@ -35,7 +35,7 @@ class MetaFieldSubscriber implements EventSubscriberInterface
         $definition->setLabel('Demo');
         $definition->setOptions(['label' => 'Demo form title', 'help' => 'A help text for the demo bundles meta field']);
         $definition->setType(TextType::class);
-        $definition->addConstraint(new Length(['max' => 200]));
+        $definition->addConstraint(new Length(max: 200));
         $definition->setIsVisible(true);
 
         return $definition;

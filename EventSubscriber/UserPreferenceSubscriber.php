@@ -33,7 +33,7 @@ class UserPreferenceSubscriber implements EventSubscriberInterface
                 ->setType(MoneyType::class)
                 ->setEnabled(true)
                 ->setOptions(['help' => 'A help text', 'label' => 'Demo user preference'])
-                ->addConstraint(new Range(['min' => 1]))
+                ->addConstraint(new Range(min: 1))
                 ->setSection('demo')
         );
     }
