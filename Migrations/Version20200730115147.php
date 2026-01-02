@@ -27,7 +27,7 @@ final class Version20200730115147 extends AbstractMigration
             $tasks->addColumn('id', 'integer', ['autoincrement' => true, 'notnull' => true]);
             $tasks->addColumn('name', 'string', ['notnull' => true, 'length' => 100]);
             $tasks->addColumn('value', 'text', ['notnull' => false]);
-            $tasks->setPrimaryKey(['id']);
+            $this->addPrimaryKeyConstraint($tasks, ['id']);
             $tasks->addIndex(['name']);
         }
     }
