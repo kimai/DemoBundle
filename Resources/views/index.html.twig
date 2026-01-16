@@ -13,10 +13,10 @@
         {% block box_body %}
             <p class="p-2">
                 <label for="doctor_locale_switch">You can change the language to any of the supported ones and see the data rendered in this locale:</label>
-                {% set demoLocale = app.request.locale == 'en' ? 'de' : 'en' %}
+                {% set demoLocale = app.locale == 'en' ? 'de' : 'en' %}
                 <select id="doctor_locale_switch" onchange="document.location = '{{ path('demo', {'_locale': demoLocale}) }}'.replace('{{ demoLocale }}', this.value)">
                     {% for locale in locales %}
-                        <option value="{{ locale }}"{% if locale == app.request.locale %} selected{% endif %}>{{ locale|locale_name(locale) }} [{{ locale }}]</option>
+                        <option value="{{ locale }}"{% if locale == app.locale %} selected{% endif %}>{{ locale|locale_name(locale) }} [{{ locale }}]</option>
                     {% endfor %}
                 </select>
             </p>
