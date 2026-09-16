@@ -57,6 +57,9 @@ final class DemoController extends AbstractController
         $page = new PageSetup('Demo');
         $page->setActionName('demo');
         $page->setActionPayload(['counter' => $entity->getCounter()]);
+        // these are the same:
+        //$page->setHelp('https://www.kimai.org/documentation/plugins.html');
+        $page->setHelp('plugins.html');
 
         return $this->render('@Demo/index.html.twig', [
             'page_setup' => $page,
